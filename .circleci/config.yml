@@ -62,7 +62,7 @@ jobs:
           name: Coverage
           working_directory: .
           command: |
-            npm run codecov -- -t d7babaa6-7370-43a3-9b26-a2147d466e3e
+            npm run codecov -- -t 152db969-8e18-4120-b386-119b2ad1d61a
 
       - store_test_results:
           path: coverage
