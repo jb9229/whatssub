@@ -2,8 +2,8 @@
 DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITORY IS USED IN `DOOBOO-CLI`.
 
 # React Native TS Boilerplate
-[![codecov](https://codecov.io/gh/dooboolab/dooboo-native-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-native-ts)
-[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-ts.svg?style=svg)](https://circleci.com/gh/dooboolab/dooboo-native-ts) [![Greenkeeper badge](https://badges.greenkeeper.io/dooboolab/dooboo-native-ts.svg)](https://greenkeeper.io/)
+[![codecov](https://codecov.io/gh/dooboolab/whatssub/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/whatssub)
+[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-ts.svg?style=svg)](https://circleci.com/gh/dooboolab/whatssub)
 
 > Specification
 * [react-native](https://github.com/facebook/react-native)
@@ -14,6 +14,7 @@ DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITOR
 * [ts-jest](https://github.com/kulshekhar/ts-jest)
 * [react-native-testing-library](https://github.com/callstack/react-native-testing-library)
 * [react-hook](https://reactjs.org/docs/hooks-intro.html)
+* [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks)
 
 ### Gain points
 ```
