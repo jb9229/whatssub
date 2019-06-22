@@ -30,7 +30,9 @@
     "ios:reset": "rm -rf ios/build/ModuleCache",
     "lint": "eslint **/*.ts && eslint **/*.tsx",
     "build:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ./ios",
-    "build:android": "react-native bundle --entry-file index.js --platform android --dev false --bundle-output android/main.jsbundle --assets-dest ./android"
+    "build:android": "react-native bundle --entry-file index.js --platform android --dev false --bundle-output android/main.jsbundle --assets-dest ./android",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
     "moment": "^2.24.0",
@@ -58,6 +60,7 @@
     "@types/styled-components": "^4.1.16",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
+    "all-contributors-cli": "^6.7.0",
     "babel-jest": "24.8.0",
     "babel-preset-react-native": "^5.0.2",
     "codecov": "^3.5.0",
