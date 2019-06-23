@@ -1,16 +1,20 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../contexts';
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import RootNavigator from './RootStackNavigator';
+import { createSwitchNavigator, createAppContainer, NavigationContainer } from 'react-navigation';
+import AuthStackNavigator from './AuthStackNavigator';
+import MainStackNavigator from './MainStackNavigator';
+import TempScreen from '../screen/Temp';
 import { ThemeProvider } from 'styled-components';
 import { createTheme } from '../../theme';
 
-const SwitchNavigator = createSwitchNavigator(
+const SwitchNavigator: NavigationContainer = createSwitchNavigator(
   {
-    RootNavigator,
+    AuthStackNavigator,
+    MainStackNavigator,
+    TempScreen,
   },
   {
-    initialRouteName: 'RootNavigator',
+    initialRouteName: 'AuthStackNavigator',
   },
 );
 
@@ -23,8 +27,8 @@ export default () => {
   return (
     <ThemeProvider theme={createTheme(theme)}>
       <AppContainer
-        screenProps={{ theme: createTheme(theme)}}
+        screenProps={{ theme: createTheme(theme) }}
       />
     </ThemeProvider>
-  )
+  );
 };

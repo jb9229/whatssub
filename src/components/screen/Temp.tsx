@@ -4,7 +4,6 @@ import {
   StatusBar,
   StyleSheet,
   TouchableHighlight,
-  TouchableOpacity,
   Image,
   ScrollView,
   Text,
@@ -16,13 +15,10 @@ import {
 import styled from 'styled-components/native';
 
 import Button from '../shared/Button';
-import {
-  IC_MASK,
-} from '../../utils/Icons';
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props) => props.theme.backgroundDark};
   flex-direction: row;
   align-items: center;
   justify-content: center;

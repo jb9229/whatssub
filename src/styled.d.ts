@@ -3,14 +3,13 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    background: string;
-    btnPrimary: string;
+    backgroundDark: string;
+    backgroundLight: string;
     btnPrimaryFont: string;
-    btnPrimaryLight: string;
-    btnPrimaryLightFont: string;
     textDisabled: string;
     btnDisabled: string;
-    fontColor: string;
-    tintColor: string;
+    fontDark: string;
+    fontLight: string;
+    fontTint: string;
   }
 }

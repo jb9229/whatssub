@@ -51,3 +51,6 @@ ios/Pods/
 
 coverage/
 package-lock.json
+
+# env
+.env

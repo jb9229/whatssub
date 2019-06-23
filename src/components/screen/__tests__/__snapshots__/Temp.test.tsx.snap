@@ -6,7 +6,7 @@ exports[`[Temp] render renders without crashing 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "white",
+        "backgroundColor": "#023059",
         "flexBasis": 0,
         "flexDirection": "row",
         "flexGrow": 1,
@@ -39,8 +39,8 @@ exports[`[Temp] render renders without crashing 1`] = `
           Object {
             "alignItems": "center",
             "alignSelf": "center",
-            "backgroundColor": "#069ccd",
-            "borderColor": "#069ccd",
+            "backgroundColor": "#023059",
+            "borderColor": "#023059",
             "borderRadius": 4,
             "borderWidth": 2,
             "height": 52,
@@ -57,7 +57,7 @@ exports[`[Temp] render renders without crashing 1`] = `
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#323b43",
               "fontSize": 14,
             },
           ]

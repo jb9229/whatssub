@@ -1,41 +1,36 @@
 import React, { useReducer } from 'react';
 import { AppContext } from '../contexts';
 import { IUser } from '../types';
+import { ThemeType } from '../theme';
 
 const AppConsumer = AppContext.Consumer;
 
 interface IAction {
-  type: 'reset-user' | 'set-user' | 'change-theme-mode';
+  type: 'change-theme-mode';
   payload: any;
 }
 
 interface IProps {
-  navigation?: any;
   children?: any;
 }
 
-export interface IState {
-  user: IUser;
+interface IState {
+  theme: ThemeType;
 }
 
 const initialState: IState = {
-  user: {
-    displayName: '',
-    age: 0,
-    job: '',
-  },
+  theme: ThemeType.LIGHT,
 };
 
 const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
-    case 'reset-user':
-      return { ...state, user: initialState.user };
-    case 'set-user':
-      return { ...state, user: action.payload };
     case 'change-theme-mode':
-      return { ...state, theme: action.payload.theme };
+      return {
+        ...state,
+        theme: action.payload.theme,
+      };
     default:
-      return null;
+      return state;
   }
 };
 

@@ -24,8 +24,8 @@ exports[`[Button] should render without crashing 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "#069ccd",
-          "borderColor": "#069ccd",
+          "backgroundColor": "#023059",
+          "borderColor": "#023059",
           "borderRadius": 4,
           "borderWidth": 2,
           "height": 52,
@@ -39,7 +39,7 @@ exports[`[Button] should render without crashing 1`] = `
       style={
         Array [
           Object {
-            "color": "white",
+            "color": "#323b43",
             "fontSize": 14,
           },
         ]

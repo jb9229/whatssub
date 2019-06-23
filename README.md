@@ -53,6 +53,7 @@ app/
 │     └─ screen
 │     └─ shared
 │  └─ contexts
+│  └─ hooks
 │  └─ utils
 │  └─ App.tsx
 ├─ test/

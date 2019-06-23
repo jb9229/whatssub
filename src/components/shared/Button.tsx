@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 
 const StyledButton = styled.View`
-  background-color: ${({ theme }) => theme.btnPrimary};
+  background-color: ${({ theme }) => theme.backgroundDark};
   align-self: center;
   border-radius: 4;
   border-width: 2;
   width: 320;
   height: 52;
-  border-color: ${({ theme }) => theme.btnPrimary};
+  border-color: ${({ theme }) => theme.backgroundDark};
 
   align-items: center;
   justify-content: center;

@@ -1,40 +1,34 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, NavigationRouteConfigMap, StackNavigatorConfig, NavigationContainer } from 'react-navigation';
 
 import IntroScreen from '../screen/Intro';
-import TempScreen from '../screen/Temp';
 
-const routeConfig = {
+const routeConfig: NavigationRouteConfigMap = {
   Intro: {
     screen: IntroScreen,
     navigationOptions: {
+      header: null,
+      headerMode: 'none',
       title: 'Intro',
+      // headerStyle: {
+      //   borderBottomWidth: 0,
+      //   backgroundColor: '#023059',
+      // },
     },
     path: 'intro',
   },
-  Temp: {
-    screen: TempScreen,
-    navigationOptions: {
-      headerTitle: <Text style={{
-        fontSize: 18,
-      }}>Temp</Text>,
-    },
-    path: 'temp',
-  },
 };
 
-const navigatorConfig = {
+const navigatorConfig: StackNavigatorConfig = {
   initialRouteName: 'Intro',
   // header: null,
   // headerMode: 'none',
-  gesturesEnabled: true,
-  statusBarStyle: 'light-content',
-  navigationOptions: ({ navigation, screenProps } : { navigation: any, screenProps: any}) => {
+  navigationOptions: ({ navigation, screenProps } : { navigation: any, screenProps: any }) => {
     const { theme } = screenProps;
     return ({
       headerStyle: {
-        backgroundColor: theme.background,
+        backgroundColor: theme.backgroundDark,
         borderBottomColor: 'transparent',
         borderBottomWidth: 0,
         elevation: 0,
@@ -45,21 +39,22 @@ const navigatorConfig = {
   },
 };
 
-const RootStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
+const AuthStackNavigator: NavigationContainer = createStackNavigator(routeConfig, navigatorConfig);
 
 interface IProps {
   navigation?: any;
   theme?: object;
+  screenProps?: any;
 }
 
 class RootNavigator extends React.Component<IProps> {
-  private static router = RootStackNavigator.router;
+  private static router = AuthStackNavigator.router;
 
   public render() {
     return (
-      <RootStackNavigator
+      <AuthStackNavigator
         navigation={this.props.navigation}
-        screenProps={{ theme: this.props.theme }}
+        screenProps={{ theme: this.props.screenProps.theme }}
       />
     );
   }
