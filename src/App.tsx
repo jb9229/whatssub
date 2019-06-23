@@ -5,16 +5,14 @@ import { Platform, StatusBar, StyleSheet, View, Text, Dimensions, AsyncStorage, 
 import SwitchNavigator from './components/navigation/SwitchNavigator';
 
 import { AppProvider as Provider } from './providers';
+import { firebaseConfig as firebaseConfigReal } from '../config';
+import { firebaseConfig as firebaseConfigSample } from '../config.sample';
 
-const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-};
+let firebaseConfig = firebaseConfigReal;
+
+if (!firebaseConfig) {
+  firebaseConfig = firebaseConfigSample;
+}
 
 firebase.initializeApp(firebaseConfig);
 

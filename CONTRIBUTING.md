@@ -34,20 +34,23 @@ Specifically, we are using `firebase` as our backend. Also we are starting our d
      - Above means you should becareful when using third party `react-native native modules` becuase they might not be compatible with `androidx` which will result in failed build.
 6. Configure `firebase` project
    * Try to create your own `firebase` project.
-   * Copy `.env.sample` to `.env`.
+   * Copy `config.sample.ts` to `config.ts`.
      ```
-     cp .env.sample .env
+     cp config.sample.ts config.ts
      ```
    * Setup variables of your own `firebase` project.
      ```
-     apiKey=
-     authDomain=
-     databaseURL=
-     projectId=
-     storageBucket=
-     messagingSenderId=
-     appId=
+     export const firebaseConfig = {
+       apiKey: '',
+       authDomain: '',
+       databaseURL: '',
+       projectId: '',
+       storageBucket: '',
+       messagingSenderId: '',
+       appId: '',
+     };
      ```
+     > Note that initial keys are set to `dev` server. However, this will be limited when more testers use the same server since firebase has its limit in accessing with free tier. Therefore, we recommend you to test this on your own `firebase` project.
 7. Run your project
    * `ios`
      - yarn run `ios`

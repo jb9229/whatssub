@@ -4,6 +4,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
+![whatssub](https://user-images.githubusercontent.com/27461460/59979206-7e61c500-961f-11e9-89d8-a6c9c98c374d.gif)
+
 ## Contributing to `whatssub`
 * See also
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)

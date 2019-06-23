@@ -35,6 +35,7 @@ const TitleWrapper = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `;
 
 const LogoImage = styled.Image`
@@ -63,7 +64,8 @@ const ContentScroll = styled.ScrollView`
 const StyledAnimatableText = styled(Text)`
   font-size: 36;
   font-weight: 600;
-  height: 40;
+  min-height: 44;
+  line-height: 48;
   color: white;
 `;
 
@@ -71,6 +73,7 @@ const StyledText = styled.Text`
   font-size: 36;
   font-weight: 600;
   line-height: 48;
+  text-align: center;
   color: ${({ theme }) => theme.fontLight};
 `;
 
@@ -174,7 +177,7 @@ function Intro(props: IProps) {
           <StyledText>{getString('INTRO_MESSAGE')}</StyledText>
           <StyledText style={{
             color: props.screenProps.theme.fontTint,
-          }}>왓-썹</StyledText>
+          }}>{getString('INTRO_WHATSSUB')}</StyledText>
           <SlashImage
             style={{
               marginTop: 38,

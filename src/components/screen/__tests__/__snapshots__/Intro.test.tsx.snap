@@ -26,6 +26,7 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
           "flexDirection": "row",
           "justifyContent": "center",
           "marginTop": 120,
+          "textAlign": "center",
         },
       ]
     }
@@ -101,12 +102,13 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
               "color": "white",
               "fontSize": 36,
               "fontWeight": "600",
-              "height": 40,
+              "lineHeight": 48,
+              "minHeight": 44,
               "opacity": 0,
             }
           }
         >
-          정기결제
+          Regular payment
         </Text>
         <Text
           style={
@@ -116,12 +118,13 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
                 "fontSize": 36,
                 "fontWeight": "600",
                 "lineHeight": 48,
+                "textAlign": "center",
               },
             ]
           }
         >
-          잊지말고
-똑똑하게
+          Do not forget
+Be smart
         </Text>
         <Text
           style={
@@ -131,6 +134,7 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
                 "fontSize": 36,
                 "fontWeight": "600",
                 "lineHeight": 48,
+                "textAlign": "center",
               },
               Object {
                 "color": "#ff84a5",
@@ -138,7 +142,7 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
             ]
           }
         >
-          왓-썹
+          Whats-Sub
         </Text>
         <Image
           source={

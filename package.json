@@ -13,6 +13,7 @@
     "upgrade": "react-native-git-upgrade && npm install --save react-native",
     "upgrade:major": "react-native upgrade",
     "test": "jest",
+    "cp:config": "cp config.sample.ts config.ts",
     "start:packager": "node_modules/react-native/packager/packager.sh",
     "start:reset": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",

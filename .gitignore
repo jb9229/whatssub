@@ -53,4 +53,4 @@ coverage/
 package-lock.json
 
 # env
-.env
+config.ts
