@@ -23,6 +23,11 @@
 * [react-hook](https://reactjs.org/docs/hooks-intro.html)
 * [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks)
 
+> Native modules
+* [react-native-animatable](https://github.com/oblador/react-native-animatable)
+* [react-native-onesignal](https://github.com/geektimecoil/react-native-onesignal)
+* [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)
+
 ### Gain points
 ```
 1. Sample of context-api with `react-hook` (`useContext`).
@@ -147,7 +152,7 @@ NativeModules.ReactLocalization = {
 ```
 
 ### React version
-16.8.1
+16.8
 
 ### React Native version
 0.60
