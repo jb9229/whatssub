@@ -32,11 +32,7 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
     }
   >
     <Image
-      source={
-        Object {
-          "testUri": "../../../assets/icons/logo.png",
-        }
-      }
+      source={1}
       style={
         Array [
           Object {
@@ -78,11 +74,7 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
     >
       <View>
         <Image
-          source={
-            Object {
-              "testUri": "../../../assets/icons/slash.png",
-            }
-          }
+          source={1}
           style={
             Array [
               Object {
@@ -145,11 +137,7 @@ Be smart
           Whats-Sub
         </Text>
         <Image
-          source={
-            Object {
-              "testUri": "../../../assets/icons/slash.png",
-            }
-          }
+          source={1}
           style={
             Array [
               Object {
@@ -185,9 +173,7 @@ Be smart
   >
     <View
       accessible={true}
-      clickable={true}
       isTVSelectable={true}
-      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -224,11 +210,7 @@ Be smart
         }
       >
         <Image
-          source={
-            Object {
-              "testUri": "../../../assets/icons/google.png",
-            }
-          }
+          source={1}
           style={
             Array [
               Object {
@@ -263,9 +245,7 @@ Be smart
     />
     <View
       accessible={true}
-      clickable={true}
       isTVSelectable={true}
-      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -302,11 +282,7 @@ Be smart
         }
       >
         <Image
-          source={
-            Object {
-              "testUri": "../../../assets/icons/facebook.png",
-            }
-          }
+          source={1}
           style={
             Array [
               Object {

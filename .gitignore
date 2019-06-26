@@ -54,3 +54,5 @@ package-lock.json
 
 # env
 config.ts
+
+.expo

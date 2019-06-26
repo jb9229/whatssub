@@ -119,43 +119,45 @@ We've created test examples with jest-ts in `src/components/screen/__tests__` an
 We've defined Localization strings in `STRINGS.js` which is in root dir.
 We used [react-native-localization](https://github.com/stefalda/ReactNativeLocalization) pacakage for this one.
 ```
-import LocalizedStrings from 'react-native-localization';
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
 
-const strings = new LocalizedStrings({
-  en: {
-    LOGIN: 'Login',
-  },
-  kr: {
-    LOGIN: '로그인',
-  },
-});
+const en = {
+  HELLO: 'Hello',
+  LOGIN: 'Login',
+  EMAIL: 'Email',
+  PASSWORD: 'Password',
+  SIGNUP: 'SIGN UP',
+  FORGOT_PW: 'Forgot password?',
+  NAVIGATE: 'Navigate',
+  CHANGE_THEME: 'Change theme',
+};
 
-export {
-  strings,
+const ko = {
+  HELLO: '안녕하세요',
+  LOGIN: '로그인',
+  EMAIL: '이메일',
+  PASSWORD: '패스워드',
+  SIGNUP: '회원가입',
+  FORGOT_PW: '비밀번호를 잊어버리셨나요?',
+  NAVIGATE: '이동하기',
+  CHANGE_THEME: '테마변경',
+};
+
+i18n.fallbacks = true;
+i18n.translations = { en, ko };
+i18n.locale = Localization.locale;
+
+export const getString = (param: string, mapObj?: object) => {
+  if (mapObj) {
+    i18n.t(param, mapObj);
+  }
+  return i18n.t(param);
 };
 ```
 
-Fixed jest setup by adding following in jestSetup.
-
-```
-import { NativeModules } from 'react-native';
-
-/**
- * monkey patching the locale to avoid the error:
- * Something went wrong initializing the native ReactLocalization module
- * https://gist.github.com/MoOx/08b465c3eac9e36e683929532472d1e0
- */
-
-NativeModules.ReactLocalization = {
-  language: 'en_US',
-};
-```
-
-### React version
-16.8
-
-### React Native version
-0.60
+### Expo version
+33
 
 ### React navigation
 3

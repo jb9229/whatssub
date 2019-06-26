@@ -1,44 +1,24 @@
-const { defaults: tsJestConfig } = require('ts-jest/presets');
-
 module.exports = {
-  ...tsJestConfig,
-  'preset': 'react-native',
-  'transformIgnorePatterns': [
-    'node_modules/(?!react-native|react-navigation|react-native-gesture-handler|react-native-animatable)/',
-    '<rootDir>/lib/',
-  ],
-  'setupFiles': [
-    './test/jestSetup.ts',
-  ],
-  'globals': {
-    'window': {},
-    'ts-jest': {
-      'babelConfig': false,
-      'tsConfig': 'tsconfig.jest.json',
-    },
-  },
+  'preset': 'jest-expo',
   'transform': {
-    '^.+\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',
-    '\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
+    '^.+\\.tsx?$': 'ts-jest',
   },
-  // 'testRegex': '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-  'testPathIgnorePatterns': [
-    '\\.snap$',
-    '<rootDir>/node_modules/',
+  'testMatch': [
+    '**/__tests__/**/*.ts?(x)',
+    '**/?(*.)+(spec|test).ts?(x)',
   ],
-  'cacheDirectory': '.jest/cache',
   'moduleFileExtensions': [
+    'js',
     'ts',
     'tsx',
-    'js',
-    'jsx',
-    'json',
-    'ios.ts',
-    'ios.tsx',
-    'android.ts',
-    'android.tsx',
   ],
-  // 'moduleNameMapper': {
-  //   '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/test/assetsTransformer.js'
-  // },
+  'globals': {
+    'ts-jest': {
+      'tsConfig': {
+        'jsx': 'react',
+      },
+      'diagnostics': false,
+    },
+  },
 };

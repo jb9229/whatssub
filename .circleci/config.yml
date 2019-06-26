@@ -243,9 +243,9 @@ workflows:
   node-android-ios:
     jobs:
       - node
-      - android:
-          requires:
-            - node
+      # - android:
+      #     requires:
+      #       - node
       # - ios:
       #     requires:
       #       - node

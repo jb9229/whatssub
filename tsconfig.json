@@ -2,17 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
-    "strictNullChecks": false,
-    "module": "es2015",
-    "target": "es2017",
-    "noImplicitAny": true,
-    "sourceMap": true,
     "allowJs": true,
+    "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "lib": [
       "dom",
       "es2015",
@@ -21,11 +17,15 @@
     ],
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "module": "es2015",
     "moduleResolution": "node",
     "noEmitHelpers": true,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
-    "strict": true
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strict": true,
+    "target": "es2017"
   },
   "include": [
     "src/**/*.ts",
