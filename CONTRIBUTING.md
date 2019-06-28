@@ -4,8 +4,10 @@
 2. [Firebase](https://firebase.google.com/?gclid=CjwKCAjwxrzoBRBBEiwAbtX1n3WG8ZeKbtDbk0VRNiQLJCPxK_AVYQpAN9nlrnWFDmmO755f4AI6lhoCLWwQAvD_BwE)
 Specifically, we are using `firebase` as our backend. Also we are starting our development from `react-native` version `0.60-rc.2` which specifically migrated to `androidx` for `android` and `cocoapod` project for `ios`. Therefore, to install our project, you should at least search what they are if you aren't totally unaware of it. Then follow [Installation](#installation).
 3. [expo](https://expo.io)
-~~4. [cocoapod](https://cocoapods.org)~~
-~~5. [AndroidX](https://developer.android.com/jetpack/androidx)~~
+4. ~~[cocoapod](https://cocoapods.org)~~
+5. ~~[AndroidX](https://developer.android.com/jetpack/androidx)~~
+6. [VSCODE](https://code.visualstudio.com)
+   - We are using `vscode` as our ide. Please install `eslint` plugin.
 
 ### Installation
 1. Fork our project to yours.
@@ -27,12 +29,12 @@ Specifically, we are using `firebase` as our backend. Also we are starting our d
    ```
    * Note that we recommend using yarn because all of our team members do.
    * Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
-4. Configure `ios` project
-   * Go to `ios` directory and run `pod install`
-   * Since `react-native` is using version `0.60` for now, the project is built with `pod` project which is required to install packages to build your `ios` project.
-5. Configure `android` project
-   * Not much required. Be aware your project should be compatible with `androidx`.
-     - Above means you should becareful when using third party `react-native native modules` becuase they might not be compatible with `androidx` which will result in failed build.
+4. ~~Configure `ios` project~~
+   * ~~Go to `ios` directory and run `pod install`~~
+   * ~~Since `react-native` is using version `0.60` for now, the project is built with `pod` project which is required to install packages to build your `ios` project.~~
+5. ~~Configure `android` project~~
+   * ~~Not much required. Be aware your project should be compatible with `androidx`.~~
+     - ~~Above means you should be careful when using third party `react-native native modules` because they might not be compatible with `androidx` which will result in failed build.~~
 6. Configure `firebase` project
    * Try to create your own `firebase` project.
    * Copy `config.sample.ts` to `config.ts`.
@@ -52,13 +54,27 @@ Specifically, we are using `firebase` as our backend. Also we are starting our d
      };
      ```
      > Note that initial keys are set to `dev` server. However, this will be limited when more testers use the same server since firebase has its limit in accessing with free tier. Therefore, we recommend you to test this on your own `firebase` project.
+6. Install `expo-cli`
+   - `npm install -g expo-cli`
 7. Run your project
    * `ios`
      - yarn run `ios`
    * `android`
      - yarn run `android`
        > Note that you should open your emulator beforehand before running above command since the script won't automatically open emulator unlike `ios`.
+8. Configure linting in [vscode](https://code.visualstudio.com) correctly.
+   * Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
+### Commit message
+Commit messages should include a title, summary, and test plan.
+
+Write the title in the imperative mood and prefix it with a tag that describes the affected code, like [android] or [video], and makes it easier to read through the commit log.
+
+In the summary, explain the motivation behind the commit ("why") and the approach it takes ("how"). Note things that aren't communicated by the code or require more context to infer.
+
+Use the test plan to communicate how to verify the code actually works and to help others in the future create their test plans for the same area of the codebase. Read the Expo guide on Git and Code Reviews for more guidance on PRs and test plans.
+
+This post called [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) has a lot of good guidance, too.
 
 ### Issue
 * Please search and register if you already have the issue you want to create. If you have a similar issue, you can add additional comments.
@@ -67,7 +83,11 @@ Specifically, we are using `firebase` as our backend. Also we are starting our d
 	* If necessary, please take a screenshot and upload an image.
 
 ### Pull request(PR)
-* PR is available to `master` branch.
+PR is available to `master` branch.
+
+Each PR should correspond to one idea and implement it coherently. This idea may be a feature that spans several parts of the codebase. For example, changing an API may include changes to the Android, iOS, and web implementations, the JavaScript SDK, and the docs for the API.
+
+Generally, each PR should contain one commit that is amended as you address code review feedback. Each commit should be meaningful and make sense on its own. Similarly, it should be easy to revert each commit. This keeps the commit history easier to read when people are working on this code or searching for a commit that could have broken something.
 
 ### Coding Guidelines
 Please follow the Coding conventions as much as possible when contributing your code.

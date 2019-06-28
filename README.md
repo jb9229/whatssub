@@ -48,7 +48,7 @@ yarn && yarn start
 ### Structures
 ```text
 app/
-├─ .doobooo // necessary if using dooboo-cli
+├─ .dooboo // necessary if using dooboo-cli
 ├─ assets
 │  └─ icons // app icons
 │  └─ images // app images like background images
@@ -65,7 +65,6 @@ app/
 │  └─ App.tsx
 ├─ test/
 ├─ .buckconfig
-├─ .flowconfig
 ├─ .gitattributes
 ├─ .gitignore
 ├─ .watchmanconfig
