@@ -31,6 +31,7 @@ const Container = styled.View`
 
 const TitleWrapper = styled.View`
   margin-top: 120;
+  align-self: center;
 
   flex-direction: row;
   justify-content: center;
@@ -78,11 +79,11 @@ const StyledText = styled.Text`
 `;
 
 const ButtonWrapper = styled.View`
-  position: absolute;
   bottom: 40;
   width: 100%;
   height: 200;
   background-color: white;
+  margin-top: 28;
   padding-top: 28;
 
   flex-direction: column;
@@ -149,9 +150,6 @@ function Intro(props: IProps) {
 
   return (
     <Container>
-      <TitleWrapper>
-        <LogoImage source={IC_LOGO}/>
-      </TitleWrapper>
       <ContentWrapper>
         <ContentScroll
           contentContainerStyle={{
@@ -159,6 +157,9 @@ function Intro(props: IProps) {
             alignItems: 'center',
           }}
         >
+          <TitleWrapper>
+            <LogoImage source={IC_LOGO}/>
+          </TitleWrapper>
           <SlashImage
             style={{
               marginTop: 68,
@@ -185,30 +186,30 @@ function Intro(props: IProps) {
             }}
             source={IC_SLASH}
           />
+          <ButtonWrapper>
+            <Button
+              testID='btnGoogle'
+              style={btnStyle}
+              imgLeftSrc={IC_GOOGLE}
+              onClick={ () => googleLogin() }
+              text={getString('SIGN_IN_WITH_GOOGLE')}
+            />
+            <View style={{ marginTop: 8 }}/>
+            <Button
+              testID='btnFacebook'
+              style={btnStyle}
+              imgLeftSrc={IC_FACEBOOK}
+              imgLeftStyle={{
+                height: 28,
+                width: 16,
+              }}
+              onClick={ () => facebookLogin() }
+              text={getString('SIGN_IN_WITH_FACEBOOK')}
+            />
+
+          </ButtonWrapper>
         </ContentScroll>
       </ContentWrapper>
-      <ButtonWrapper>
-        <Button
-          testID='btnGoogle'
-          style={btnStyle}
-          imgLeftSrc={IC_GOOGLE}
-          onClick={ () => googleLogin() }
-          text={getString('SIGN_IN_WITH_GOOGLE')}
-        />
-        <View style={{ marginTop: 8 }}/>
-        <Button
-          testID='btnFacebook'
-          style={btnStyle}
-          imgLeftSrc={IC_FACEBOOK}
-          imgLeftStyle={{
-            height: 28,
-            width: 16,
-          }}
-          onClick={ () => facebookLogin() }
-          text={getString('SIGN_IN_WITH_FACEBOOK')}
-        />
-
-      </ButtonWrapper>
     </Container>
   );
 }
