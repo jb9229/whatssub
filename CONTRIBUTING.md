@@ -1,10 +1,11 @@
 ## Contribution Guide
 > You should be aware of below stacks(do not need to be professional) to contribute to our repository.
 1. [React Native](https://facebook.github.io/react-native)
-2. [cocoapod](https://cocoapods.org)
-3. [AndroidX](https://developer.android.com/jetpack/androidx)
-4. [Firebase](https://firebase.google.com/?gclid=CjwKCAjwxrzoBRBBEiwAbtX1n3WG8ZeKbtDbk0VRNiQLJCPxK_AVYQpAN9nlrnWFDmmO755f4AI6lhoCLWwQAvD_BwE)
+2. [Firebase](https://firebase.google.com/?gclid=CjwKCAjwxrzoBRBBEiwAbtX1n3WG8ZeKbtDbk0VRNiQLJCPxK_AVYQpAN9nlrnWFDmmO755f4AI6lhoCLWwQAvD_BwE)
 Specifically, we are using `firebase` as our backend. Also we are starting our development from `react-native` version `0.60-rc.2` which specifically migrated to `androidx` for `android` and `cocoapod` project for `ios`. Therefore, to install our project, you should at least search what they are if you aren't totally unaware of it. Then follow [Installation](#installation).
+3. [expo](https://expo.io)
+~~4. [cocoapod](https://cocoapods.org)~~
+~~5. [AndroidX](https://developer.android.com/jetpack/androidx)~~
 
 ### Installation
 1. Fork our project to yours.
