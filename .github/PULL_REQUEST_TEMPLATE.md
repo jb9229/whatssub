@@ -11,7 +11,7 @@
 I added the following tests:
 
 *Replace this with a list of the tests that you added as part of this PR. A change in behavior with no test covering it
-will likely get reverted accidentally sooner or later. PRs must include tests for all changed/updated/fixed behaviors. See [Test Coverage].*
+will likely get reverted accidentally sooner or later. PRs must include tests for all changed/updated/fixed behaviors. See [Test Coverage](https://codecov.io/gh/dooboolab/whatssub).*
 
 ## Checklist
 
@@ -19,7 +19,6 @@ Before you create this PR confirm that it meets all requirements listed below by
 
 - [ ] I read the [Contributor Guide](https://github.com/dooboolab/whatssub/blob/master/CONTRIBUTING.md) and followed the process outlined there for submitting PRs.
 - [ ] I signed the [CLA].
-- [ ] I read and followed the [Flutter Style Guide], including [Features we expect every widget to implement].
 - [ ] Run `yarn test` or `yarn test -u` if you need to update snapshot.
 - [ ] Run `yarn lint`
 - [ ] I am willing to follow-up on review comments in a timely manner.

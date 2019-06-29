@@ -79,6 +79,28 @@ app/
 └─ tslint.json
 ```
 
+### `config.ts`
+Run below to make your own `config` variables.
+| `cp config.sample.ts config.ts`
+
+* `config` variables
+| Name                         | Description               | required? | default               |
+|:-----------------------------|:------------------------- | --------- | --------------------- |
+| firebaseConfig               | firebaseConfig keys in `firebase` web app project. | true      | {our test server variable} |
+
+```
+// Please edit below variables to your `firebase` project.
+export const firebaseConfig = {
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
+};
+````
+
 ### Running the project
 Running the project is as simple as running
 ```sh
