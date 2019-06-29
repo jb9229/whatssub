@@ -84,9 +84,10 @@ Run below to make your own `config` variables.
 | `cp config.sample.ts config.ts`
 
 * `config` variables
-| Name                         | Description               | required? | default               |
-|:-----------------------------|:------------------------- | --------- | --------------------- |
-| firebaseConfig               | firebaseConfig keys in `firebase` web app project. | true      | {our test server variable} |
+
+| Name              | Description                                        | required? | default               |
+|:----------------- |:-------------------------------------------------- | --------- | --------------------- |
+| firebaseConfig    | firebaseConfig keys in `firebase` web app project. | true      | {our test server variable} |
 
 ```
 // Please edit below variables to your `firebase` project.
