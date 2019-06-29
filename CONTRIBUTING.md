@@ -37,11 +37,12 @@ Specifically, we are using `firebase` as our backend. Also we are starting our d
      - ~~Above means you should be careful when using third party `react-native native modules` because they might not be compatible with `androidx` which will result in failed build.~~
 6. Configure `firebase` project
    * Try to create your own `firebase` project.
+   * Make an `web app` in `project settings`, then you can acquire `firebaseConfig` from there.
    * Copy `config.sample.ts` to `config.ts`.
      ```
      cp config.sample.ts config.ts
      ```
-   * Setup variables of your own `firebase` project.
+   * Setup variables with acquired `firebaseConfig` from your `firebase` project.
      ```
      export const firebaseConfig = {
        apiKey: '',
