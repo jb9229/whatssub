@@ -10,7 +10,7 @@
 
 I added the following tests:
 
-*Replace this with a list of the tests that you added as part of this PR. A change in behaviour with no test covering it
+*Replace this with a list of the tests that you added as part of this PR. A change in behavior with no test covering it
 will likely get reverted accidentally sooner or later. PRs must include tests for all changed/updated/fixed behaviors. See [Test Coverage].*
 
 ## Checklist
@@ -20,23 +20,6 @@ Before you create this PR confirm that it meets all requirements listed below by
 - [ ] I read the [Contributor Guide](https://github.com/dooboolab/whatssub/blob/master/CONTRIBUTING.md) and followed the process outlined there for submitting PRs.
 - [ ] I signed the [CLA].
 - [ ] I read and followed the [Flutter Style Guide], including [Features we expect every widget to implement].
-- [ ] I updated/added relevant documentation (doc comments with `///`).
-- [ ] All existing and new tests are passing.
-- [ ] The analyzer (`flutter analyze --flutter-repo`) does not report any problems on my PR.
+- [ ] Run `yarn test` or `yarn test -u` if you need to update snapshot.
+- [ ] Run `yarn lint`
 - [ ] I am willing to follow-up on review comments in a timely manner.
-
-## Breaking Change
-
-Does your PR require Flutter developers to manually update their apps to accommodate your change?
-
-- [ ] Yes, this is a breaking change (Please read [Handling breaking changes]). *Replace this with a link to the e-mail where you asked for input on this proposed change.*
-- [ ] No, this is *not* a breaking change.
-
-<!-- Links -->
-[issue database]: https://github.com/flutter/flutter/issues
-[Contributor Guide]: https://github.com/flutter/flutter/wiki/Tree-hygiene#overview
-[Test Coverage]: https://github.com/flutter/flutter/wiki/Test-coverage-for-package%3Aflutter
-[Flutter Style Guide]: https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo
-[Features we expect every widget to implement]: https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#features-we-expect-every-widget-to-implement
-[CLA]: https://cla.developers.google.com/
-[Handling breaking changes]: https://github.com/flutter/flutter/wiki/Tree-hygiene#handling-breaking-changes
