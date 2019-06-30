@@ -1,20 +1,27 @@
 import React, { useContext } from 'react';
+import {
+  createSwitchNavigator,
+  createAppContainer,
+  NavigationContainer,
+} from 'react-navigation';
+
 import { AppContext } from '../../contexts';
-import { createSwitchNavigator, createAppContainer, NavigationContainer } from 'react-navigation';
+import { ThemeProvider } from 'styled-components';
+import { createTheme } from '../../theme';
 import AuthStackNavigator from './AuthStackNavigator';
 import MainStackNavigator from './MainStackNavigator';
 import TempScreen from '../screen/Temp';
-import { ThemeProvider } from 'styled-components';
-import { createTheme } from '../../theme';
+import AuthLoadingScreen from '../screen/AuthLoading';
 
 const SwitchNavigator: NavigationContainer = createSwitchNavigator(
   {
+    AuthLoadingScreen,
     AuthStackNavigator,
     MainStackNavigator,
     TempScreen,
   },
   {
-    initialRouteName: 'AuthStackNavigator',
+    initialRouteName: 'AuthLoadingScreen',
   },
 );
 
