@@ -91,7 +91,19 @@ Each PR should correspond to one idea and implement it coherently. This idea may
 Generally, each PR should contain one commit that is amended as you address code review feedback. Each commit should be meaningful and make sense on its own. Similarly, it should be easy to revert each commit. This keeps the commit history easier to read when people are working on this code or searching for a commit that could have broken something.
 
 ### Coding Guidelines
-Please follow the Coding conventions as much as possible when contributing your code.
+Please follow the Coding conventions as much as possible when contributing your code. This is mostly covered by `eslint` plugin in `vscode`. Add `eslint` plugin and add below in `setting.json` in `vscode` to fix `coding style` in live editing.
+```
+"eslint.enable": true,
+"eslint.validate": [
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact"
+],
+```
+> `npm run lint` command will cover your code style either.
+
+General styles
 * The indent tab is two spaces.
 * The class declaration and the `{}` in curly brackets such as function, if, foreach, for, and while should be in the following format. Also if you installed eslint in vscode or in your code editor, it will help you with linting.
 	* `{` should be placed in same line and `}` should be placed in next line.
