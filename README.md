@@ -1,7 +1,7 @@
 # whatssub
 [![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-ts.svg?style=shield)](https://circleci.com/gh/dooboolab/whatssub)
 [![codecov](https://codecov.io/gh/dooboolab/whatssub/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/whatssub)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 ![whatssub](https://user-images.githubusercontent.com/27461460/59979206-7e61c500-961f-11e9-89d8-a6c9c98c374d.gif)
@@ -190,11 +190,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table>
-  <tr>
-    <td align="center"><a href="http://dooboolab.com"><img src="https://avatars0.githubusercontent.com/u/27461460?v=4" width="60px;" alt="Hyo Chan Jang"/><br /><sub><b>Hyo Chan Jang</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=hyochan" title="Code">💻</a></td>
-  </tr>
-</table>
+<table><tr><td align="center"><a href="http://dooboolab.com"><img src="https://avatars0.githubusercontent.com/u/27461460?v=4" width="60px;" alt="Hyo Chan Jang"/><br /><sub><b>Hyo Chan Jang</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=hyochan" title="Code">💻</a> <a href="https://github.com/dooboolab/whatssub/commits?author=hyochan" title="Tests">⚠️</a> <a href="https://github.com/dooboolab/whatssub/commits?author=hyochan" title="Documentation">📖</a></td><td align="center"><a href="https://www.linkedin.com/in/youngsu-han/"><img src="https://avatars1.githubusercontent.com/u/22214150?v=4" width="60px;" alt="Youngsu Han"/><br /><sub><b>Youngsu Han</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=heyman333" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
