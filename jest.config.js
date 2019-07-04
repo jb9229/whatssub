@@ -21,4 +21,14 @@ module.exports = {
       'diagnostics': false,
     },
   },
+  'moduleNameMapper': {
+    'react-spring': '<rootDir>/node_modules/react-spring/web.cjs',
+    'react-spring/native': '<rootDir>/node_modules/react-spring/native.cjs',
+    'react-spring/renderprops': '<rootDir>/node_modules/react-spring/renderprops.cjs',
+  },
+  'modulePathIgnorePatterns': [
+    '<rootDir>/build/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/.history/',
+  ],
 };

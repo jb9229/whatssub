@@ -7,7 +7,7 @@ const en = {
   INTRO_TITLE_1: 'Regular payment',
   INTRO_TITLE_2: 'Subscription',
   INTRO_TITLE_3: 'Automatic transfer',
-  INTRO_TITLE_4: 'Monthly com',
+  INTRO_TITLE_4: 'Monthly fixed charge',
   INTRO_TITLE_5: 'Regular delivery',
   INTRO_MESSAGE: 'Do not forget\nBe smart',
   INTRO_WHATSSUB: 'Whats-Sub',

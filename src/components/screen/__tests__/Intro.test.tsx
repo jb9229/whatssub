@@ -7,7 +7,7 @@ import renderer from 'react-test-renderer';
 import { render, fireEvent, waitForElement } from 'react-native-testing-library';
 
 import { AppProvider } from '../../../providers';
-import Intro from '../Intro';
+import Intro, { titleArray } from '../Intro';
 import Button from '../../shared/Button';
 import { createTheme, ThemeType } from '../../../theme';
 
@@ -19,7 +19,19 @@ const createTestProps = (obj: object) => ({
 });
 
 const props: any = createTestProps({});
-const component = (
+const Component = (
+  <AppProvider>
+    <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
+      <Intro
+        {...props}
+        screenProps={{
+          theme: createTheme(ThemeType.LIGHT),
+        }}
+      />
+    </ThemeProvider>
+  </AppProvider>
+);
+const RTLComponent = (props) => (
   <AppProvider>
     <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
       <Intro
@@ -33,11 +45,29 @@ const component = (
 );
 let json: renderer.ReactTestRendererJSON;
 
+const act = renderer.act;
+
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
 // test for the container page in dom
 describe('[Intro] screen rendering test', () => {
   it('should render outer component and snapshot matches', () => {
-    json = renderer.create(component).toJSON();
+    act(() => {
+      json = renderer.create(Component).toJSON();
+    });
     expect(json).toMatchSnapshot();
+  });
+});
+
+describe('[Intro] screen useTransition with setInterval test', () => {
+  it('should match the second title text after 1500ms', () => {
+    const { getByTestId } = render(<RTLComponent {...props} />);
+    setTimeout(() => {
+      expect(getByTestId('animatableText').props.children).toBe(titleArray[1]); // 'Subscription'
+    }, 2000);
+    jest.clearAllTimers();
   });
 });
 
@@ -47,27 +77,29 @@ describe('[Intro] Interaction', () => {
   let testingLib: any;
 
   it('should simulate [googleLogin] click', () => {
-    rendered = renderer.create(component);
+    act(() => {
+      rendered = renderer.create(Component);
+    });
     root = rendered.root;
-    testingLib = render(component);
-
-    jest.useFakeTimers();
-    const buttons = root.findAllByType(Button);
+    act(() => {
+      const buttons = root.findAllByType(Button);
+      expect(buttons[0].props.isLoading).toEqual(false); // TODO: test with useState
+    });
+    testingLib = render(Component);
     fireEvent(testingLib.getByTestId('btnGoogle'), 'click');
-
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'reset-user' });
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
-
-    jest.runAllTimers();
-    expect(buttons[0].props.isLoading).toEqual(false); // TODO: test with useState
   });
 
   it('should simulate [facebookLogin] click', () => {
-    rendered = renderer.create(component);
+    act(() => {
+      rendered = renderer.create(Component);
+    });
     root = rendered.root;
-
-    const buttons = root.findAllByType(Button);
+    act(() => {
+      const buttons = root.findAllByType(Button);
+      expect(buttons[1].props.isLoading).toEqual(false);
+    });
     fireEvent(testingLib.getByTestId('btnFacebook'), 'click');
-    expect(buttons[1].props.isLoading).toEqual(false);
   });
 });

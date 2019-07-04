@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import firebase from 'firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-
+import _range from 'lodash/range';
 import {
   View,
 } from 'react-native';
@@ -98,14 +98,8 @@ interface IProps {
 }
 
 function Intro(props: IProps) {
-  const titleArray = [
-    getString('INTRO_TITLE_1'),
-    getString('INTRO_TITLE_2'),
-    getString('INTRO_TITLE_3'),
-    getString('INTRO_TITLE_4'),
-    getString('INTRO_TITLE_5'),
-  ];
-  const [titleIndex, setTitleIndex] = React.useState(0);
+  const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
+  const [titleIndex, setTitleIndex] = useState(0);
   // const [user, initialising, error] = useAuthState(firebase.auth());
 
   // const changeTheme = () => {
@@ -146,7 +140,7 @@ function Intro(props: IProps) {
     } else {
       setTitleIndex(titleIndex + 1);
     }
-  }, 1000);
+  }, 2000);
 
   return (
     <Container>
@@ -168,6 +162,7 @@ function Intro(props: IProps) {
             source={IC_SLASH}
           />
           <StyledAnimatableText
+            testID='animatableText'
             animation='fadeIn'
             iterationCount='infinite'
             direction='alternate'
