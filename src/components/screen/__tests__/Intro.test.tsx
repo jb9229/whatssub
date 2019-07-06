@@ -1,5 +1,6 @@
 import 'react-native';
 import * as React from 'react';
+import firebase from 'firebase';
 
 // Note: test renderer must be required after react-native.
 import { ThemeProvider } from 'styled-components/native';
@@ -91,15 +92,17 @@ describe('[Intro] Interaction', () => {
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
   });
 
-  it('should simulate [facebookLogin] click', () => {
+  it('should simulate [facebookLogin] click', async (done) => {
+    const navigate = jest.fn(() => done());
+    props.navigation.navigate = navigate;
     act(() => {
       rendered = renderer.create(Component);
     });
     root = rendered.root;
     act(() => {
       const buttons = root.findAllByType(Button);
-      expect(buttons[1].props.isLoading).toEqual(false);
+      fireEvent(testingLib.getByTestId('btnFacebook'), 'click');
     });
-    fireEvent(testingLib.getByTestId('btnFacebook'), 'click');
+    expect(navigate).toBeCalled();
   });
 });

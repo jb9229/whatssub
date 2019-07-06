@@ -88,6 +88,7 @@ Run below to make your own `config` variables.
 | Name              | Description                                        | required? | default               |
 |:----------------- |:-------------------------------------------------- | --------- | --------------------- |
 | firebaseConfig    | firebaseConfig keys in `firebase` web app project. | true      | {our test server variable} |
+| facebookAppId                | Facebook App Id           | true      |                       |
 
 ```
 // Please edit below variables to your `firebase` project.

@@ -2,8 +2,10 @@ import React, { useState, useCallback } from 'react';
 import firebase from 'firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import _range from 'lodash/range';
+import * as Facebook from 'expo-facebook';
+
 import {
-  View,
+  View, Alert,
 } from 'react-native';
 import { Text } from 'react-native-animatable';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
@@ -12,6 +14,7 @@ import { AppProvider as Provider, AppConsumer, AppContext } from '../../provider
 import styled from 'styled-components/native';
 
 import { ThemeType } from '../../theme';
+import { facebookAppId } from '../../../config';
 import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
@@ -99,8 +102,9 @@ interface IProps {
 
 function Intro(props: IProps) {
   const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
-  const [titleIndex, setTitleIndex] = useState(0);
-  // const [user, initialising, error] = useAuthState(firebase.auth());
+  const [titleIndex, setTitleIndex] = React.useState(0);
+
+  const [user, initialising, error] = useAuthState(firebase.auth());
 
   // const changeTheme = () => {
   //   let payload: object;
@@ -119,12 +123,36 @@ function Intro(props: IProps) {
   //   });
   // };
 
+  if (user) {
+    props.navigation.navigate('MainStackNavigator');
+  }
+
   const googleLogin = () => {
     console.log('googleLogin');
   };
 
-  const facebookLogin = () => {
-    console.log('facebookLogin');
+  const facebookLogin = async () => {
+    try {
+      const {
+        type,
+        token,
+      } = await Facebook.logInWithReadPermissionsAsync(facebookAppId, {
+        permissions: ['public_profile'],
+      });
+      if (type === 'success') {
+        // Build Firebase credential with the Facebook access token.
+        const credential = firebase.auth.FacebookAuthProvider.credential(token);
+
+        // Sign in with credential from the Facebook user.
+        await firebase.auth().signInWithCredential(credential);
+      } else {
+        // type === 'cancel'
+
+      }
+    } catch ({ message }) {
+      /* istanbul ignore next */
+      alert(`Facebook Login Error: ${message}`);
+    }
   };
 
   const btnStyle = {
@@ -198,7 +226,9 @@ function Intro(props: IProps) {
                 height: 28,
                 width: 16,
               }}
-              onClick={ () => facebookLogin() }
+              onClick={ () => {
+                facebookLogin();
+              }}
               text={getString('SIGN_IN_WITH_FACEBOOK')}
             />
 
