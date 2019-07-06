@@ -49,6 +49,17 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "JongtaekChoi",
+      "name": "Choi, Jongtaek",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17980230?v=4",
+      "profile": "https://github.com/JongtaekChoi",
+      "contributions": [
+        "code",
+        "test",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
