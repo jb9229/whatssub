@@ -1,6 +1,6 @@
 export const logInWithReadPermissionsAsync = () => {
   return new Promise(
-    (resolve) => {
+    (resolve, reject) => {
       resolve({ type: 'success', token: 'testToken' });
     }
   );

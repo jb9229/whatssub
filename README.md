@@ -4,7 +4,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
-![whatssub](https://user-images.githubusercontent.com/27461460/59979206-7e61c500-961f-11e9-89d8-a6c9c98c374d.gif)
+![whatssub](https://user-images.githubusercontent.com/27461460/60770813-1b415980-a11a-11e9-9dfb-6993b6816a07.gif)
 
 ## Contributing to `whatssub`
 * See also
@@ -21,12 +21,9 @@
 * [ts-jest](https://github.com/kulshekhar/ts-jest)
 * [react-native-testing-library](https://github.com/callstack/react-native-testing-library)
 * [react-hook](https://reactjs.org/docs/hooks-intro.html)
-* [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks)
-
-> Native modules
+* [graphql](https://graphql.org)
+* [apollo-client](https://www.apollographql.com/docs/react)
 * [react-native-animatable](https://github.com/oblador/react-native-animatable)
-* [react-native-onesignal](https://github.com/geektimecoil/react-native-onesignal)
-* [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)
 
 ### Gain points
 ```
@@ -87,21 +84,7 @@ Run below to make your own `config` variables.
 
 | Name              | Description                                        | required? | default               |
 |:----------------- |:-------------------------------------------------- | --------- | --------------------- |
-| firebaseConfig    | firebaseConfig keys in `firebase` web app project. | true      | {our test server variable} |
 | facebookAppId                | Facebook App Id           | true      |                       |
-
-```
-// Please edit below variables to your `firebase` project.
-export const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: '',
-  appId: '',
-};
-````
 
 ### Running the project
 Running the project is as simple as running

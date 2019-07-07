@@ -1,13 +1,13 @@
 ## Contribution Guide
 > You should be aware of below stacks(do not need to be professional) to contribute to our repository.
 1. [React Native](https://facebook.github.io/react-native)
-2. [Firebase](https://firebase.google.com/?gclid=CjwKCAjwxrzoBRBBEiwAbtX1n3WG8ZeKbtDbk0VRNiQLJCPxK_AVYQpAN9nlrnWFDmmO755f4AI6lhoCLWwQAvD_BwE)
-Specifically, we are using `firebase` as our backend. Also we are starting our development from `react-native` version `0.60-rc.2` which specifically migrated to `androidx` for `android` and `cocoapod` project for `ios`. Therefore, to install our project, you should at least search what they are if you aren't totally unaware of it. Then follow [Installation](#installation).
-3. [expo](https://expo.io)
-4. ~~[cocoapod](https://cocoapods.org)~~
-5. ~~[AndroidX](https://developer.android.com/jetpack/androidx)~~
-6. [VSCODE](https://code.visualstudio.com)
+2. [expo](https://expo.io)
+3. ~~[cocoapod](https://cocoapods.org)~~
+4. ~~[AndroidX](https://developer.android.com/jetpack/androidx)~~
+5. [VSCODE](https://code.visualstudio.com)
    - We are using `vscode` as our ide. Please install `eslint` plugin.
+6. [Graphql](https://graphql.org)
+7. [Apollo Client](https://www.apollographql.com/docs/react/why-apollo)
 
 ### Installation
 1. Fork our project to yours.
@@ -35,26 +35,12 @@ Specifically, we are using `firebase` as our backend. Also we are starting our d
 5. ~~Configure `android` project~~
    * ~~Not much required. Be aware your project should be compatible with `androidx`.~~
      - ~~Above means you should be careful when using third party `react-native native modules` because they might not be compatible with `androidx` which will result in failed build.~~
-6. Configure `firebase` project
-   * Try to create your own `firebase` project.
-   * Make an `web app` in `project settings`, then you can acquire `firebaseConfig` from there.
+6. Configure `environment` for project
    * Copy `config.sample.ts` to `config.ts`.
      ```
      cp config.sample.ts config.ts
      ```
-   * Setup variables with acquired `firebaseConfig` from your `firebase` project.
-     ```
-     export const firebaseConfig = {
-       apiKey: '',
-       authDomain: '',
-       databaseURL: '',
-       projectId: '',
-       storageBucket: '',
-       messagingSenderId: '',
-       appId: '',
-     };
-     ```
-     > Note that initial keys are set to `dev` server. However, this will be limited when more testers use the same server since firebase has its limit in accessing with free tier. Therefore, we recommend you to test this on your own `firebase` project.
+     > Note that initial keys are set to `dev` server.
 6. Install `expo-cli`
    - `npm install -g expo-cli`
 7. Run your project

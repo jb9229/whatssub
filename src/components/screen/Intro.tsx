@@ -1,6 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import firebase from 'firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import _range from 'lodash/range';
 import * as Facebook from 'expo-facebook';
 
@@ -104,8 +102,6 @@ function Intro(props: IProps) {
   const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
   const [titleIndex, setTitleIndex] = React.useState(0);
 
-  const [user, initialising, error] = useAuthState(firebase.auth());
-
   // const changeTheme = () => {
   //   let payload: object;
   //   if (state.theme === ThemeType.LIGHT) {
@@ -123,9 +119,9 @@ function Intro(props: IProps) {
   //   });
   // };
 
-  if (user) {
-    props.navigation.navigate('MainStackNavigator');
-  }
+  // if (user) {
+  //   props.navigation.navigate('MainStackNavigator');
+  // }
 
   const googleLogin = () => {
     console.log('googleLogin');
@@ -141,13 +137,12 @@ function Intro(props: IProps) {
       });
       if (type === 'success') {
         // Build Firebase credential with the Facebook access token.
-        const credential = firebase.auth.FacebookAuthProvider.credential(token);
+        // const credential = firebase.auth.FacebookAuthProvider.credential(token);
 
         // Sign in with credential from the Facebook user.
-        await firebase.auth().signInWithCredential(credential);
+        // await firebase.auth().signInWithCredential(credential);
       } else {
         // type === 'cancel'
-
       }
     } catch ({ message }) {
       /* istanbul ignore next */

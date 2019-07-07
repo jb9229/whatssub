@@ -1,7 +1,7 @@
 module.exports = {
   'preset': 'jest-expo',
   'transform': {
-    '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
+    '^.+\\.js$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest',
   },
   'testMatch': [
@@ -21,14 +21,10 @@ module.exports = {
       'diagnostics': false,
     },
   },
-  'moduleNameMapper': {
-    'react-spring': '<rootDir>/node_modules/react-spring/web.cjs',
-    'react-spring/native': '<rootDir>/node_modules/react-spring/native.cjs',
-    'react-spring/renderprops': '<rootDir>/node_modules/react-spring/renderprops.cjs',
-  },
   'modulePathIgnorePatterns': [
     '<rootDir>/build/',
     '<rootDir>/node_modules/',
     '<rootDir>/.history/',
   ],
+  'setupFiles': ['<rootDir>/test/jestSetup.ts'],
 };
