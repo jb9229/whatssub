@@ -80,53 +80,51 @@ app/
 
 ### `app.json`
 Run below to make your own `app` variables.
-| `cp app.sample.json app.json`
+> `cp app.sample.json app.json`
 
 * `app` variables
- "facebookDisplayName": "whatssub",
-    "facebookAppId": "<facebookAppId>",
-   | Name               | Description                                        | required? | default               |
-   |:------------------ |:-------------------------------------------------- | --------- | --------------------- |
-   | facebookAppId      | facebook app id                                    | true      | null                  |
-   | facebookDisplayName| facebook display name                              | true      | whatssub              |
-   | ios.config.googleSignIn.reservedClientId    | REVERSED_CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true  | {our test ios} |
-   | android.config.googleSignIn.certificateHash    | SHA1 or SHA256 hash keys from `expo fetch:android:hashes`  | true      | {our test ios} |
 
-```json
-...
-  "ios": {
-    "supportsTablet": false,
-    "bundleIdentifier": "com.dooboolab.whatssub",
-    "config": {
-      "googleSignIn": {
-        "reservedClientId": "<reservedClientId>"
+  | Name   | Description               | required?    | default    |
+  |--------|---------------------------|--------------|------------|
+  | facebookAppId      | facebook app id       | true      | null                  |
+  | facebookDisplayName| facebook display name | true      | whatssub              |
+  | ios.config.googleSignIn.reservedClientId   | REVERSED_CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true | {our test ios} |
+  | android.config.googleSignIn.certificateHash | SHA1 or SHA256 hash keys from `expo fetch:android:hashes` | true | {our test ios} |
+  ```json
+  ...
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.dooboolab.whatssub",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "<reservedClientId>"
+        }
+      }
+    },
+    "android": {
+      "package": "com.dooboolab.whatssub",
+      "googleServicesFile": "./google-services.json",
+      "config": {
+        "googleSignIn": {
+          "certificateHash": "<certificateHash>"
+        }
       }
     }
-  },
-  "android": {
-    "package": "com.dooboolab.whatssub",
-    "googleServicesFile": "./google-services.json",
-    "config": {
-      "googleSignIn": {
-        "certificateHash": "<certificateHash>"
-      }
-    }
-  }
-...
-```
+  ...
+  ```
 
 ### `config.ts`
 Run below to make your own `config` variables.
-| `cp config.sample.ts config.ts`
+> `cp config.sample.ts config.ts`
+   * `config` variables
 
-* `config` variables
-   | Name              | Description                                        | required? | default               |
-   |:----------------- |:-------------------------------------------------- | --------- | --------------------- |
-   | iOSClientId       | CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project.  | true      | {our test ios clientId} |
+      | Name              | Description                                        | required? | default         |
+      |-------------------|----------------------------------------------------|-----------|-----------------|
+      | iOSClientId       | CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true       | {our test ios clientId} |
 
-   ```typescript
-   export const iOSClientId = '';
-   ```
+     ```typescript
+     export const iOSClientId = '';
+     ```
 
 ### Running the project
 Running the project is as simple as running
