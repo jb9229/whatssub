@@ -3,7 +3,7 @@ import * as React from 'react';
 import Main from '../Main';
 
 import renderer from 'react-test-renderer';
-import { render, fireEvent } from 'react-native-testing-library';
+import { render, fireEvent, act, RenderResult } from '@testing-library/react-native';
 
 const createTestProps = (props: Object) => ({
   navigation: {
@@ -14,8 +14,8 @@ const createTestProps = (props: Object) => ({
 });
 
 let props: any;
-let testing: any;
-let component: any;
+let component: React.ReactElement;
+let testing: RenderResult;
 
 describe('[Main]', () => {
   beforeAll(() => {
@@ -37,7 +37,7 @@ describe('[Main] Interaction', () => {
   });
 
   it('should render [Text] with value "myText"', () => {
-    const textInstance: renderer.ReactTestInstance = testing.getByTestId('myText');
+    const textInstance = testing.getByTestId('myText');
     expect(textInstance.props.children).toEqual('dooboolab');
   });
 });

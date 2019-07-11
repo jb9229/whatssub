@@ -1,22 +1,22 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import _range from 'lodash/range';
+import Constants from 'expo-constants';
 import * as Facebook from 'expo-facebook';
 import {
   View, Alert,
 } from 'react-native';
 import { Text } from 'react-native-animatable';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
-import { AppProvider as Provider, AppConsumer, AppContext } from '../../providers';
-
-import styled from 'styled-components/native';
 import * as GoogleSignIn from 'expo-google-sign-in';
+import styled from 'styled-components/native';
 
+import _range from 'lodash/range';
+import { AppProvider as Provider, AppConsumer, AppContext } from '../../providers';
 import { ThemeType } from '../../theme';
 import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 import useInterval from '../../hooks/useInterval';
-import { iOSClientId, facebookAppId } from '../../../config';
+import { iOSClientId } from '../../../config';
 
 const Container = styled.View`
   flex: 1;
@@ -162,7 +162,7 @@ function Intro(props: IProps) {
       const {
         type,
         token,
-      } = await Facebook.logInWithReadPermissionsAsync(facebookAppId, {
+      } = await Facebook.logInWithReadPermissionsAsync(Constants.manifest.facebookAppId, {
         permissions: ['public_profile'],
       });
       if (type === 'success') {

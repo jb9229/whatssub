@@ -19,7 +19,7 @@
 * [localization](https://github.com/stefalda/ReactNativeLocalization)
 * [styled-components](https://github.com/styled-components/styled-components)
 * [ts-jest](https://github.com/kulshekhar/ts-jest)
-* [react-native-testing-library](https://github.com/callstack/react-native-testing-library)
+* [@testing-library/react-native](https://www.native-testing-library.com/docs/install)
 * [react-hook](https://reactjs.org/docs/hooks-intro.html)
 * [graphql](https://graphql.org)
 * [apollo-client](https://www.apollographql.com/docs/react)
@@ -30,7 +30,7 @@
 1. Sample of context-api with `react-hook` (`useContext`).
 2. Know how to structure react native app with typescript.
 3. Know how to navigate between screens with `react-navigation`.
-4. Know how to write test code with `react-native-testing-library`.
+4. Know how to write test code with `@testing-library/react-native`.
 5. Know how to `lint` your project with `tslint`.
 6. Know how to localize your project.
 ```
@@ -65,7 +65,7 @@ app/
 ├─ .gitattributes
 ├─ .gitignore
 ├─ .watchmanconfig
-├─ app.json
+├─ app.sample.json
 ├─ babel.config.js
 ├─ index.js
 ├─ jest.config.js
@@ -83,11 +83,14 @@ Run below to make your own `app` variables.
 | `cp app.sample.json app.json`
 
 * `app` variables
-
-| Name              | Description                                        | required? | default               |
-|:----------------- |:-------------------------------------------------- | --------- | --------------------- |
-| ios.config..googleSignIn.reservedClientId    | REVERSED_CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true  | {our test ios} |
-| android.config.googleSignIn.certificateHash    | SHA1 or SHA256 hash keys from `expo fetch:android:hashes`  | true      | {our test ios} |
+ "facebookDisplayName": "whatssub",
+    "facebookAppId": "<facebookAppId>",
+   | Name               | Description                                        | required? | default               |
+   |:------------------ |:-------------------------------------------------- | --------- | --------------------- |
+   | facebookAppId      | facebook app id                                    | true      | null                  |
+   | facebookDisplayName| facebook display name                              | true      | whatssub              |
+   | ios.config.googleSignIn.reservedClientId    | REVERSED_CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true  | {our test ios} |
+   | android.config.googleSignIn.certificateHash    | SHA1 or SHA256 hash keys from `expo fetch:android:hashes`  | true      | {our test ios} |
 
 ```json
 ...
@@ -117,17 +120,13 @@ Run below to make your own `config` variables.
 | `cp config.sample.ts config.ts`
 
 * `config` variables
+   | Name              | Description                                        | required? | default               |
+   |:----------------- |:-------------------------------------------------- | --------- | --------------------- |
+   | iOSClientId       | CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project.  | true      | {our test ios clientId} |
 
-| Name              | Description                                        | required? | default               |
-|:----------------- |:-------------------------------------------------- | --------- | --------------------- |
-| iOSClientId    | CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project.  | true      | {our test ios clientId} |
-| facebookAppId                | Facebook App Id           | true      |                       |
-
-```typescript
-
-export const iOSClientId = '';
-export const facebookAppId = '';
-```
+   ```typescript
+   export const iOSClientId = '';
+   ```
 
 ### Running the project
 Running the project is as simple as running
@@ -138,7 +137,7 @@ npm run start
 This runs the `start` script specified in our `package.json`, and will spawn off a server which reloads the page as we save our files.
 Typically the server runs at `http://localhost:8080`, but should be automatically opened for you.
 
-## Testing the project
+### Testing the project
 Testing is also just a command away:
 ```sh
 npm test
@@ -214,9 +213,8 @@ export const getString = (param: string, mapObj?: object) => {
 1. Set SHA1 or SHA256 hash keys from `expo fetch:android:hashes`
 1. Download `google-services.json` to whatssub root folder
 
-#### Ios
-
-1. Create new IOS project
+#### iOS
+1. Create new iOS project
 1. Set bundleIdentifier com.dooboolab.whatssub
 1. Download `GoogleService-Info.plist` to whatssub root folder
 

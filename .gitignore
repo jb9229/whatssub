@@ -21,6 +21,7 @@ package-lock.json
 config.ts
 
 .expo
+.expo-shared
 google-services.json
 GoogleService-Info.plist
 app.json

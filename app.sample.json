@@ -22,6 +22,8 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "facebookDisplayName": "whatssub",
+    "facebookAppId": "<facebookAppId>",
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.dooboolab.whatssub",
