@@ -103,19 +103,23 @@ describe('[Intro] Interaction', () => {
 });
 
 describe('[Intro] GoogleSingIn', () => {
-  it('should succeded process', async () => {
+  let testingLib: RenderResult;
+
+  beforeEach(() => {
+    testingLib = render(Component);
+  });
+  it('should pass [GoogleSignIn] unit test', async () => {
     await GoogleSignIn.initAsync();
     const ask = await GoogleSignIn.askForPlayServicesAsync();
     const { type, user } = await GoogleSignIn.signInAsync();
-    // console.log(GoogleSignIn.initAsync);
-    // expect(GoogleSignIn.initAsync).toHaveBeenCalled();
-    // expect(GoogleSignIn.askForPlayServicesAsync).toHaveBeenCalled();
     expect(ask).toEqual(true);
     expect(type).toEqual('success');
-    // expect(user).toHaveProperty('auth', {
-    //   clientId: 'test',
-    //   accessToken: 'aabb',
-    //   accessTokenExpirationDate: 1562518153000,
-    // });
+  });
+  it('should call [googleSignIn] and resolves methods', () => {
+    act(() => {
+      fireEvent.press(testingLib.queryByTestId('btnGoogle'));
+    });
+    expect(GoogleSignIn.askForPlayServicesAsync()).resolves.toBeCalled();
+    expect(GoogleSignIn.signInAsync()).resolves.toBeCalled();
   });
 });
