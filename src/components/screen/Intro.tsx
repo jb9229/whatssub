@@ -69,6 +69,7 @@ const StyledAnimatableText = styled(Text)`
   min-height: 44;
   line-height: 48;
   color: white;
+  text-align: center;
 `;
 
 const StyledText = styled.Text`
