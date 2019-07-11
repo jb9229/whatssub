@@ -112,6 +112,8 @@ Run below to make your own `app` variables.
     }
   ...
   ```
+  * Add `expo` key hash if you want to sign in with `facebook` in expo client.
+    `rRW++LUjmZZ+58EbN5DVhGAnkX4=`
 
 ### `config.ts`
 Run below to make your own `config` variables.
