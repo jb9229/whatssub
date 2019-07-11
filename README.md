@@ -69,11 +69,47 @@ app/
 ├─ babel.config.js
 ├─ index.js
 ├─ jest.config.js
+├─ GoogleService-Info.plist
+├─ google-services.json
 ├─ package.json
 ├─ README.md
 ├─ STRINGS.js
 ├─ tsconfig.json
 └─ tslint.json
+```
+
+### `app.json`
+Run below to make your own `app` variables.
+| `cp app.sample.json app.json`
+
+* `app` variables
+
+| Name              | Description                                        | required? | default               |
+|:----------------- |:-------------------------------------------------- | --------- | --------------------- |
+| ios.config..googleSignIn.reservedClientId    | REVERSED_CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true  | {our test ios} |
+| android.config.googleSignIn.certificateHash    | SHA1 or SHA256 hash keys from `expo fetch:android:hashes`  | true      | {our test ios} |
+
+```json
+...
+  "ios": {
+    "supportsTablet": false,
+    "bundleIdentifier": "com.dooboolab.whatssub",
+    "config": {
+      "googleSignIn": {
+        "reservedClientId": "<reservedClientId>"
+      }
+    }
+  },
+  "android": {
+    "package": "com.dooboolab.whatssub",
+    "googleServicesFile": "./google-services.json",
+    "config": {
+      "googleSignIn": {
+        "certificateHash": "<certificateHash>"
+      }
+    }
+  }
+...
 ```
 
 ### `config.ts`
@@ -84,7 +120,14 @@ Run below to make your own `config` variables.
 
 | Name              | Description                                        | required? | default               |
 |:----------------- |:-------------------------------------------------- | --------- | --------------------- |
+| iOSClientId    | CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project.  | true      | {our test ios clientId} |
 | facebookAppId                | Facebook App Id           | true      |                       |
+
+```typescript
+
+export const iOSClientId = '';
+export const facebookAppId = '';
+```
 
 ### Running the project
 Running the project is as simple as running
@@ -161,6 +204,21 @@ export const getString = (param: string, mapObj?: object) => {
   return i18n.t(param);
 };
 ```
+
+### Create Android/IOS project in `firebase`
+
+#### Android
+
+1. Create new Android project
+1. Set package name com.dooboolab.whatssub
+1. Set SHA1 or SHA256 hash keys from `expo fetch:android:hashes`
+1. Download `google-services.json` to whatssub root folder
+
+#### Ios
+
+1. Create new IOS project
+1. Set bundleIdentifier com.dooboolab.whatssub
+1. Download `GoogleService-Info.plist` to whatssub root folder
 
 ### Expo version
 33

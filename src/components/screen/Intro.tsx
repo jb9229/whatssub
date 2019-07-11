@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import _range from 'lodash/range';
 import * as Facebook from 'expo-facebook';
-
 import {
   View, Alert,
 } from 'react-native';
@@ -10,13 +9,14 @@ import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import { AppProvider as Provider, AppConsumer, AppContext } from '../../providers';
 
 import styled from 'styled-components/native';
+import * as GoogleSignIn from 'expo-google-sign-in';
 
 import { ThemeType } from '../../theme';
-import { facebookAppId } from '../../../config';
 import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 import useInterval from '../../hooks/useInterval';
+import { iOSClientId, facebookAppId } from '../../../config';
 
 const Container = styled.View`
   flex: 1;
@@ -98,9 +98,11 @@ interface IProps {
   navigation?: NavigationScreenProp<NavigationStateRoute<any>>;
 }
 
+export const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
+
 function Intro(props: IProps) {
-  const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
   const [titleIndex, setTitleIndex] = React.useState(0);
+  const [googleUser, setGoogleUser] = useState(null);
 
   // const changeTheme = () => {
   //   let payload: object;
@@ -119,13 +121,40 @@ function Intro(props: IProps) {
   //   });
   // };
 
+  useEffect(() => {
+    initAsync();
+  }, []);
+
+  const initAsync = async () => {
+    await GoogleSignIn.initAsync({
+      clientId: iOSClientId,
+    });
+  };
+
+  const googleSignOutAsync = async () => {
+    await GoogleSignIn.signOutAsync();
+    setGoogleUser(null);
+  };
+
+  const googleSignInAsync = async () => {
+    try {
+      await GoogleSignIn.askForPlayServicesAsync();
+      const { type, user } = await GoogleSignIn.signInAsync();
+      if (type === 'success') {
+        setGoogleUser(user);
+      }
+    } catch ({ message }) {
+      alert('login: Error:' + message);
+    }
+  };
+
+  const googleSignIn = () => {
+    googleSignInAsync();
+  };
+
   // if (user) {
   //   props.navigation.navigate('MainStackNavigator');
   // }
-
-  const googleLogin = () => {
-    console.log('googleLogin');
-  };
 
   const facebookLogin = async () => {
     try {
@@ -209,7 +238,7 @@ function Intro(props: IProps) {
               testID='btnGoogle'
               style={btnStyle}
               imgLeftSrc={IC_GOOGLE}
-              onClick={ () => googleLogin() }
+              onClick={ () => googleSignIn() }
               text={getString('SIGN_IN_WITH_GOOGLE')}
             />
             <View style={{ marginTop: 8 }}/>

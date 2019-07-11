@@ -1,5 +1,6 @@
 import 'react-native';
 import * as React from 'react';
+import * as GoogleSignIn from 'expo-google-sign-in';
 
 // Note: test renderer must be required after react-native.
 import { ThemeProvider } from 'styled-components/native';
@@ -93,7 +94,6 @@ describe('[Intro] Interaction', () => {
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'reset-user' });
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
   });
-
   it('should simulate [facebookLogin] click', () => {
     root = rendered.root;
     act(() => {
@@ -101,5 +101,23 @@ describe('[Intro] Interaction', () => {
       fireEvent(testingLib.getByTestId('btnFacebook'), 'click');
     });
     // expect(navigate).toBeCalled();
+  });
+});
+
+describe('[Intro] GoogleSingIn', () => {
+  it('should succeded process', async () => {
+    await GoogleSignIn.initAsync();
+    const ask = await GoogleSignIn.askForPlayServicesAsync();
+    const { type, user } = await GoogleSignIn.signInAsync();
+    // console.log(GoogleSignIn.initAsync);
+    // expect(GoogleSignIn.initAsync).toHaveBeenCalled();
+    // expect(GoogleSignIn.askForPlayServicesAsync).toHaveBeenCalled();
+    expect(ask).toEqual(true);
+    expect(type).toEqual('success');
+    // expect(user).toHaveProperty('auth', {
+    //   clientId: 'test',
+    //   accessToken: 'aabb',
+    //   accessTokenExpirationDate: 1562518153000,
+    // });
   });
 });
