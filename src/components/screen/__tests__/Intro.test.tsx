@@ -114,6 +114,13 @@ describe('[Intro] GoogleSingIn', () => {
     const { type, user } = await GoogleSignIn.signInAsync();
     expect(ask).toEqual(true);
     expect(type).toEqual('success');
+    expect(user).toEqual({
+      auth: {
+        clientId: 'test',
+        accessToken: 'aabb',
+        accessTokenExpirationDate: 1562518153000,
+      },
+    });
   });
   it('should call [googleSignIn] and resolves methods', () => {
     act(() => {
