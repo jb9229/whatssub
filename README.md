@@ -202,8 +202,6 @@ export const getString = (param: string, mapObj?: object) => {
 };
 ```
 
-### Create Android/IOS project in `firebase`
-
 #### Android
 
 1. Create new Android project
