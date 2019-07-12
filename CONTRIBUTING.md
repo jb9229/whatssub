@@ -40,7 +40,11 @@
      ```
      cp config.sample.ts config.ts
      ```
-     > Note that initial keys are set to `dev` server.
+   * Copy `app.sample.json` to `app.json`.
+     ```
+     cp app.sample.json app.json
+     ```
+     > Note that you should avoid using fake string like `"reservedClientId": "<reservedClientId>"`. Please erase it if you've not have one or put the real one otherwise `expo` won't start your app.
 6. Install `expo-cli`
    - `npm install -g expo-cli`
 7. Run your project
