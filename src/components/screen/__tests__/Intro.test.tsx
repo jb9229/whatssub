@@ -5,7 +5,7 @@ import * as GoogleSignIn from 'expo-google-sign-in';
 // Note: test renderer must be required after react-native.
 import { ThemeProvider } from 'styled-components/native';
 import renderer from 'react-test-renderer';
-import { render, fireEvent, act, RenderResult } from '@testing-library/react-native';
+import { render, fireEvent, act, RenderResult, cleanup } from '@testing-library/react-native';
 import _range from 'lodash/range';
 import Intro from '../Intro';
 import { AppProvider } from '../../../providers';
@@ -78,23 +78,15 @@ describe('[Intro] Interaction', () => {
   let root: renderer.ReactTestInstance;
   let testingLib: RenderResult;
 
-  it('should simulate [googleLogin] click', () => {
-    act(() => {
-      rendered = renderer.create(Component);
-    });
-    root = rendered.root;
-    act(() => {
-      const buttons = root.findAllByType(Button);
-      expect(buttons[0].props.isLoading).toEqual(false); // TODO: test with useState
-    });
+  beforeEach(() => {
     testingLib = render(Component);
-
-    fireEvent.press(testingLib.getByTestId('btnGoogle'));
-    // expect(context.dispatch).toHaveBeenCalledWith({ type: 'reset-user' });
-    // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
+    rendered = renderer.create(Component);
   });
+
+  afterEach(cleanup);
+
   it('should simulate [facebookLogin] click', () => {
-    root = rendered.root;
+    testingLib = render(Component);
     act(() => {
       fireEvent.press(testingLib.getByTestId('btnFacebook'));
     });
@@ -108,6 +100,9 @@ describe('[Intro] GoogleSingIn', () => {
   beforeEach(() => {
     testingLib = render(Component);
   });
+
+  afterEach(cleanup);
+
   it('should pass [GoogleSignIn] unit test', async () => {
     await GoogleSignIn.initAsync();
     const ask = await GoogleSignIn.askForPlayServicesAsync();

@@ -31,7 +31,7 @@
 2. Know how to structure react native app with typescript.
 3. Know how to navigate between screens with `react-navigation`.
 4. Know how to write test code with `@testing-library/react-native`.
-5. Know how to `lint` your project with `tslint`.
+5. Know how to `lint` your project with `eslint`.
 6. Know how to localize your project.
 ```
 
