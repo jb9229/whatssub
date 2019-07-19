@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { AuthSession, AppAuth } from 'expo';
+import { AuthSession, AppAuth, Google } from 'expo';
 import Constants from 'expo-constants';
 import * as Facebook from 'expo-facebook';
 import {
-  View, Alert,
+  View, Alert, Platform,
 } from 'react-native';
 import { Text } from 'react-native-animatable';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
@@ -17,7 +17,7 @@ import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 import useInterval from '../../hooks/useInterval';
-import { iOSClientId, iOSExpoClientId } from '../../../config';
+import { iOSClientId, iOSExpoClientId, androidExpoClientId } from '../../../config';
 
 const Container = styled.View`
   flex: 1;
@@ -147,7 +147,10 @@ function Intro(props: IProps) {
         const response = await AppAuth.authAsync({
           issuer: 'https://accounts.google.com',
           scopes: ['profile'],
-          clientId: iOSExpoClientId,
+          clientId: Platform.select({
+            ios: iOSExpoClientId,
+            android: androidExpoClientId,
+          }),
         });
         console.log(response);
       } catch ({ message }) {

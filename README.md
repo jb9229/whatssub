@@ -123,11 +123,15 @@ Run below to make your own `config` variables.
       | Name              | Description                                        | required? | default         |
       |-------------------|----------------------------------------------------|-----------|-----------------|
       | iOSClientId       | CLIENT_ID in `GoogleService-Info.plist` `firebase` ios app project. | true       | {our test ios clientId} |
+      | iOSExpoClientId   | CLIENT_ID in `GoogleService-Info.plist` ios app project with `host.exp.exponent` | true       | {our test ios clientId} |
+      | androidExpoClientId | CLIENT_ID in `google-service.json` android app project with `host.exp.exponent`| true       | {our test and clientId} |
 
      ```typescript
      export const iOSClientId = '';
      export const iOSExpoClientId = '';
+     export const androidExpoClientId = '';
      ```
+     > For android, you should run `openssl rand -base64 32 | openssl sha1 -c` and paste the result in your `host.exp.exponent` firebase project. Also note that you can't use `googleSignIn` in `emulator`.
 
 ### Running the project
 Running the project is as simple as running
