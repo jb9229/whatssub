@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { AuthSession, AppAuth } from 'expo';
 import Constants from 'expo-constants';
 import * as Facebook from 'expo-facebook';
 import {
@@ -16,7 +17,7 @@ import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 import useInterval from '../../hooks/useInterval';
-import { iOSClientId } from '../../../config';
+import { iOSClientId, iOSExpoClientId } from '../../../config';
 
 const Container = styled.View`
   flex: 1;
@@ -84,7 +85,6 @@ const ButtonWrapper = styled.View`
   bottom: 40;
   width: 100%;
   height: 200;
-  background-color: white;
   margin-top: 28;
   padding-top: 28;
 
@@ -104,6 +104,8 @@ export const titleArray = _range(5).map((index: number) => getString(`INTRO_TITL
 function Intro(props: IProps) {
   const [titleIndex, setTitleIndex] = React.useState(0);
   const [googleUser, setGoogleUser] = useState(null);
+  const [signingInFacebook, setSigningInFacebook] = useState(false);
+  const [signingInGoogle, setSigningInGoogle] = useState(false);
 
   // const changeTheme = () => {
   //   let payload: object;
@@ -124,6 +126,7 @@ function Intro(props: IProps) {
 
   useEffect(() => {
     initAsync();
+    console.log('appOwnership', Constants.appOwnership);
   }, []);
 
   const initAsync = async () => {
@@ -138,6 +141,22 @@ function Intro(props: IProps) {
   };
 
   const googleSignInAsync = async () => {
+    setSigningInGoogle(true);
+    if (Constants.appOwnership === 'expo') {
+      try {
+        const response = await AppAuth.authAsync({
+          issuer: 'https://accounts.google.com',
+          scopes: ['profile'],
+          clientId: iOSExpoClientId,
+        });
+        console.log(response);
+      } catch ({ message }) {
+        console.log('err', message);
+      } finally {
+        setSigningInGoogle(false);
+      }
+      return;
+    }
     try {
       await GoogleSignIn.askForPlayServicesAsync();
       const { type, user } = await GoogleSignIn.signInAsync();
@@ -146,11 +165,9 @@ function Intro(props: IProps) {
       }
     } catch ({ message }) {
       alert('login: Error:' + message);
+    } finally {
+      setSigningInGoogle(false);
     }
-  };
-
-  const googleSignIn = () => {
-    googleSignInAsync();
   };
 
   // if (user) {
@@ -158,6 +175,7 @@ function Intro(props: IProps) {
   // }
 
   const facebookLogin = async () => {
+    setSigningInFacebook(true);
     try {
       const {
         type,
@@ -177,6 +195,8 @@ function Intro(props: IProps) {
     } catch ({ message }) {
       /* istanbul ignore next */
       alert(`Facebook Login Error: ${message}`);
+    } finally {
+      setSigningInFacebook(false);
     }
   };
 
@@ -239,7 +259,9 @@ function Intro(props: IProps) {
               testID='btnGoogle'
               style={btnStyle}
               imgLeftSrc={IC_GOOGLE}
-              onClick={ () => googleSignIn() }
+              isLoading={signingInGoogle}
+              indicatorColor={props.screenProps.theme.backgroundDark}
+              onClick={ () => googleSignInAsync() }
               text={getString('SIGN_IN_WITH_GOOGLE')}
             />
             <View style={{ marginTop: 8 }}/>
@@ -247,6 +269,8 @@ function Intro(props: IProps) {
               testID='btnFacebook'
               style={btnStyle}
               imgLeftSrc={IC_FACEBOOK}
+              indicatorColor={props.screenProps.theme.backgroundDark}
+              isLoading={signingInFacebook}
               imgLeftStyle={{
                 height: 28,
                 width: 16,

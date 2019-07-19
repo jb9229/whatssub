@@ -1,6 +1,7 @@
 import 'react-native';
 import * as React from 'react';
 import * as GoogleSignIn from 'expo-google-sign-in';
+import { AuthSession, AppAuth } from 'expo';
 
 // Note: test renderer must be required after react-native.
 import { ThemeProvider } from 'styled-components/native';
@@ -123,5 +124,25 @@ describe('[Intro] GoogleSingIn', () => {
     });
     expect(GoogleSignIn.askForPlayServicesAsync()).resolves.toBeCalled();
     expect(GoogleSignIn.signInAsync()).resolves.toBeCalled();
+  });
+  it('should signin with [AppAuth] when ownership is expo', () => {
+    jest.mock('expo-constants', () => {
+      return {
+        appOwnership: 'expo',
+      };
+    });
+    jest.mock('expo', () => {
+      return {
+        AppAuth: {
+          authAsync: jest.fn(() => Promise.resolve()),
+        },
+      };
+    });
+
+    const btnGoogle = testingLib.queryByTestId('btnGoogle');
+    act(() => {
+      fireEvent.press(btnGoogle);
+    });
+    expect(AppAuth.authAsync()).resolves.toBeCalled();
   });
 });

@@ -126,6 +126,7 @@ Run below to make your own `config` variables.
 
      ```typescript
      export const iOSClientId = '';
+     export const iOSExpoClientId = '';
      ```
 
 ### Running the project
