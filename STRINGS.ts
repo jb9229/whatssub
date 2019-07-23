@@ -13,6 +13,8 @@ const en = {
   INTRO_WHATSSUB: 'Whats-Sub',
   NAVIGATE: 'Navigate',
   CHANGE_THEME: 'Change theme',
+  PRODUCTION_CARD_SUBSCRIPTION_SWITCH_ON: 'UnSub',
+  PRODUCTION_CARD_SUBSCRIPTION_SWITCH_OFF: 'Sub',
 };
 
 const ko = {
@@ -27,6 +29,8 @@ const ko = {
   INTRO_WHATSSUB: '왓-썹',
   NAVIGATE: '이동하기',
   CHANGE_THEME: '테마 변경',
+  PRODUCTION_CARD_SUBSCRIPTION_SWITCH_ON: '해지',
+  PRODUCTION_CARD_SUBSCRIPTION_SWITCH_OFF: '구독',
 };
 
 i18n.fallbacks = true;
