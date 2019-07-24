@@ -12,6 +12,7 @@ import AuthStackNavigator from './AuthStackNavigator';
 import MainStackNavigator from './MainStackNavigator';
 import TempScreen from '../screen/Temp';
 import AuthLoadingScreen from '../screen/AuthLoading';
+import ExamplePieChartMonth from '../screen/ExamplePieChartMonth';
 
 const SwitchNavigator: NavigationContainer = createSwitchNavigator(
   {
@@ -19,9 +20,10 @@ const SwitchNavigator: NavigationContainer = createSwitchNavigator(
     AuthStackNavigator,
     MainStackNavigator,
     TempScreen,
+    ExamplePieChartMonth,
   },
   {
-    initialRouteName: 'AuthLoadingScreen',
+    initialRouteName: 'ExamplePieChartMonth',
   },
 );
 

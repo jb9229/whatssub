@@ -15,6 +15,10 @@ const en = {
   CHANGE_THEME: 'Change theme',
   PRODUCTION_CARD_SUBSCRIPTION_SWITCH_ON: 'UnSub',
   PRODUCTION_CARD_SUBSCRIPTION_SWITCH_OFF: 'Sub',
+  AMOUNT_TO_BE_PAID: 'Amount to be paid',
+  CATEGORY_CULTURE_LEISURE: 'Culture/Leisure',
+  CATEGORY_EDUCATION: 'Education',
+  CATEGORY_GAME: 'Game',
 };
 
 const ko = {
@@ -31,6 +35,10 @@ const ko = {
   CHANGE_THEME: '테마 변경',
   PRODUCTION_CARD_SUBSCRIPTION_SWITCH_ON: '해지',
   PRODUCTION_CARD_SUBSCRIPTION_SWITCH_OFF: '구독',
+  AMOUNT_TO_BE_PAID: '결제 예정 금액',
+  CATEGORY_CULTURE_LEISURE: '문화/여가',
+  CATEGORY_EDUCATION: '교육',
+  CATEGORY_GAME: '게임',
 };
 
 i18n.fallbacks = true;
