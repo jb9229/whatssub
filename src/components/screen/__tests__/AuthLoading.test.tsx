@@ -31,7 +31,7 @@ describe('[AuthLoading] interaction', () => {
     props = createTestProps({});
   });
 
-   it('should navigate to other screen', async () => {
+  it('should navigate to other screen', async () => {
     const { getByTestId } = render(<AuthLoading {...props} />);
     await wait(async () => {
       const SplashImage = getByTestId('SPLASH_IMAGE');
