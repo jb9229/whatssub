@@ -18,7 +18,7 @@ import Button from '../shared/Button';
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.backgroundDark};
+  background-color: ${(props) => props.theme.background};
   flex-direction: row;
   align-items: center;
   justify-content: center;

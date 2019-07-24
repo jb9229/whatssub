@@ -8,6 +8,7 @@ import {
 } from 'react-navigation';
 
 import IntroScreen from '../screen/Intro';
+import { ScreenProps } from '../../types';
 
 const routeConfig: NavigationRouteConfigMap = {
   Intro: {
@@ -34,7 +35,7 @@ const navigatorConfig: StackNavigatorConfig = {
     const { theme } = screenProps;
     return ({
       headerStyle: {
-        backgroundColor: theme.backgroundDark,
+        backgroundColor: theme.background,
         borderBottomColor: 'transparent',
         borderBottomWidth: 0,
         elevation: 0,
@@ -45,26 +46,4 @@ const navigatorConfig: StackNavigatorConfig = {
   },
 };
 
-const AuthStackNavigator: NavigationContainer =
-  createStackNavigator(routeConfig, navigatorConfig);
-
-interface Props {
-  navigation?: any;
-  theme?: object;
-  screenProps?: any;
-}
-
-class RootNavigator extends React.Component<Props> {
-  private static router = AuthStackNavigator.router;
-
-  public render() {
-    return (
-      <AuthStackNavigator
-        navigation={this.props.navigation}
-        screenProps={{ theme: this.props.screenProps.theme }}
-      />
-    );
-  }
-}
-
-export default RootNavigator;
+export default createStackNavigator(routeConfig, navigatorConfig);

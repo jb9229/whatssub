@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.backgroundDark};
+  background-color: ${(props) => props.theme.background};
   padding: 100px 20px;
 `;
 

@@ -17,7 +17,8 @@ import _range from 'lodash/range';
 import Intro from '../Intro';
 import { AppProvider } from '../../../providers';
 import Button from '../../shared/Button';
-import { createTheme, ThemeType } from '../../../theme';
+import { createTheme } from '../../../theme';
+import { ThemeType } from '../../../types';
 
 import { getString } from '../../../../STRINGS';
 

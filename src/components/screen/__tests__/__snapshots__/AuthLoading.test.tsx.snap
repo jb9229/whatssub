@@ -7,7 +7,7 @@ exports[`[AuthLoading] render component and snapshot matches 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "white",
+        "backgroundColor": "#f9fafb",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,

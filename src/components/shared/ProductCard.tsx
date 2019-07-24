@@ -57,7 +57,7 @@ const TitleText = styled.Text`
   text-align: center;
   font-size: 16;
   font-weight: bold;
-  color: ${({ theme }) => theme.btnPrimaryFont};
+  color: ${({ theme }) => theme.fontColor};
 `;
 
 const SummaryTitleTextWrapper = styled.View`
@@ -69,7 +69,7 @@ const SummaryTitleText = styled.Text`
   text-align: center;
   font-size: 16;
   font-weight: bold;
-  color: ${({ theme }) => theme.btnPrimaryFont};
+  color: ${({ theme }) => theme.fontColor};
 `;
 
 const PriceText = styled.Text`

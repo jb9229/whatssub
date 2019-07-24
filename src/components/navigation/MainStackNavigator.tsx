@@ -8,6 +8,7 @@ import {
 } from 'react-navigation';
 
 import Main from '../screen/Main';
+import { ScreenProps } from '../../types';
 
 const routeConfig: NavigationRouteConfigMap = {
   Intro: {
@@ -28,7 +29,7 @@ const navigatorConfig: StackNavigatorConfig = {
     const { theme } = screenProps;
     return ({
       headerStyle: {
-        backgroundColor: theme.backgroundDark,
+        backgroundColor: theme.background,
         borderBottomColor: 'transparent',
         borderBottomWidth: 0,
         elevation: 0,
@@ -44,7 +45,7 @@ const RootStackNavigator: NavigationContainer =
 
 interface Props {
   navigation?: any;
-  theme?: object;
+  screenProps?: ScreenProps;
 }
 
 class RootNavigator extends React.Component<Props> {
@@ -54,7 +55,10 @@ class RootNavigator extends React.Component<Props> {
     return (
       <RootStackNavigator
         navigation={this.props.navigation}
-        screenProps={{ theme: this.props.theme }}
+        screenProps={{
+          theme: this.props.screenProps.theme,
+          changeTheme: this.props.screenProps.changeTheme,
+        }}
       />
     );
   }

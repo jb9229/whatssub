@@ -14,7 +14,7 @@ const SPLASH_SHOW_TIME = 1500;
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background};
   align-items: center;
   justify-content: center;
 `;

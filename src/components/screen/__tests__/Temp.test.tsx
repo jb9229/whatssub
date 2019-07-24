@@ -10,7 +10,9 @@ import {
   RenderResult,
 } from '@testing-library/react-native';
 
-import { createTheme, ThemeType } from '../../../theme';
+import { createTheme } from '../../../theme';
+import { ThemeType } from '../../../types';
+
 import Temp from '../Temp';
 
 const props = {

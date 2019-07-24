@@ -9,30 +9,30 @@ import {
 } from 'react-native';
 
 const StyledButton = styled.View`
-  background-color: ${({ theme }) => theme.backgroundDark};
+  background-color: ${({ theme }) => theme.marine};
   align-self: center;
   border-radius: 4;
   border-width: 2;
   width: 320;
   height: 52;
-  border-color: ${({ theme }) => theme.backgroundDark};
+  border-color: ${({ theme }) => theme.marine};
 
   align-items: center;
   justify-content: center;
 `;
 
 const StyledButtonDisabled = styled(StyledButton)`
-  background-color: ${({ theme }) => theme.btnDisabled};
+  background-color: ${({ theme }) => theme.disabled};
   border-color: rgb(200,200,200);
 `;
 
 const StyledText = styled.Text`
   font-size: 14;
-  color: ${({ theme }) => theme.btnPrimaryFont};
+  color: ${({ theme }) => theme.fontColor};
 `;
 
 const StyledTextDisabled = styled(StyledText)`
-  color: ${({ theme }) => theme.textDisabled};
+  color: ${({ theme }) => theme.disabled};
 `;
 
 const StyledImage = styled.Image`

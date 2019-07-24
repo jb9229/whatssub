@@ -1,13 +1,41 @@
-interface Theme {
-  colors: object
-};
+import { ThemeType } from './types';
+interface LocalColors {
+  blue: string;
+  darkGray: string;
+  deepGray: string;
+  gray: string;
+  lightGray: string;
+  paleGray: string;
+  pale: string;
+  lineGray: string;
+  bgGray: string;
+  red: string;
+  marine: string;
+  rosa: string;
+  white: string;
+  black: string;
+}
 
-export enum ThemeType {
-  LIGHT = 'LIGHT',
-  DARK = 'DARK',
-};
+interface Colors {
+  headerBackgroundLight: string;
+  headerBackgroundDark: string;
+  backgroundLight: string;
+  backgroundDark: string;
+  highlightLight: string;
+  highlightDark: string;
+  textPrimaryLight: string;
+  textPrimaryDark: string;
+  textSecondaryLight: string;
+  textSecondaryDark: string;
+  disabledLight: string;
+  disabledDark: string;
+  rosa: string;
+  marine: string;
+  blue: string;
+  gray: string;
+}
 
-export const colors = {
+const localColors: LocalColors = {
   blue: '#4981f2',
   darkGray: '#323b43',
   deepGray: '#596570',
@@ -24,28 +52,49 @@ export const colors = {
   black: '#000000',
 };
 
+export const colors: Colors = {
+  headerBackgroundLight: localColors.white,
+  headerBackgroundDark: '#323739',
+  backgroundLight: localColors.bgGray,
+  backgroundDark: '#333333',
+  highlightLight: localColors.blue,
+  highlightDark: localColors.blue,
+  textPrimaryLight: localColors.black,
+  textPrimaryDark: localColors.white,
+  textSecondaryLight: localColors.gray,
+  textSecondaryDark: '#696969',
+  disabledLight: localColors.gray,
+  disabledDark: localColors.gray,
+  rosa: localColors.rosa,
+  marine: localColors.marine,
+  blue: localColors.blue,
+  gray: localColors.gray,
+};
+
 const theme = {
   light: {
-    backgroundDark: colors.marine,
-    backgroundLight: colors.white,
-    btnPrimaryFont: colors.darkGray,
-    btnWhiteBorder: colors.paleGray,
-    textDisabled: colors.gray,
-    btnDisabled: colors.white,
-    fontDark: colors.black,
-    fontLight: colors.white,
-    fontTint: colors.rosa,
+    background: colors.backgroundLight,
+    headerBackground: colors.headerBackgroundLight,
+    highlight: colors.highlightLight,
+    fontColor: colors.textPrimaryLight,
+    fontSecondaryColor: colors.textSecondaryLight,
+    disabled: colors.disabledLight,
+    rosa: colors.rosa,
+    marine: colors.marine,
+    gray: colors.gray,
+    blue: colors.blue,
   },
   dark: {
-    backgroundDark: colors.marine,
-    backgroundLight: colors.marine,
-    btnPrimaryFont: colors.darkGray,
-    btnWhiteBorder: colors.paleGray,
-    textDisabled: colors.gray,
-    btnDisabled: colors.white,
-    fontDark: colors.black,
-    fontLight: colors.white,
-    fontTint: colors.rosa,
+    background: colors.backgroundDark,
+    headerBackground: colors.headerBackgroundDark,
+    highlight: colors.highlightDark,
+    fontColor: colors.textPrimaryDark,
+    fontSecondaryColor: colors.textSecondaryDark,
+    disabled: colors.disabledDark,
+    rosa: colors.rosa,
+    marine: colors.marine,
+    gray: colors.gray,
+    blue: colors.blue,
   },
 };
 

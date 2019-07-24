@@ -32,11 +32,11 @@ const StyledViewInfo = styled.View`
 `;
 const StyledText = styled.Text`
   font-size: 14;
-  color: ${({ theme }) => theme.btnPrimaryFont};
+  color: ${({ theme }) => theme.fontColor};
 `;
 const StyledTextMonth = styled.Text`
   font-size: 14;
-  color: ${({ theme }) => theme.fontDark};
+  color: ${({ theme }) => theme.fontColor};
 `;
 const StyledTextInfoCategory = styled.Text`
   font-size: 14;
@@ -154,7 +154,7 @@ export default function SharedPieChart(props: Props) {
           <StyledText style={{ fontSize: 14, color: colors.gray }}>
             {getString('AMOUNT_TO_BE_PAID')}
           </StyledText>
-          <StyledText style={{ fontSize: 24, color: colors.darkGray }}>
+          <StyledText style={{ fontSize: 24, color: colors.gray }}>
             {`${totalPrice}${currency}`}
           </StyledText>
           {/* <StyledText style={{ fontSize: 20 }}>

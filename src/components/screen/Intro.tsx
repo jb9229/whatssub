@@ -1,20 +1,22 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useContext, useState, useCallback, useEffect } from 'react';
 import { AuthSession, AppAuth, Google } from 'expo';
 import Constants from 'expo-constants';
 import * as Facebook from 'expo-facebook';
 import {
-  View, Alert, Platform,
+  View, Platform, TouchableOpacity,
 } from 'react-native';
 import { Text } from 'react-native-animatable';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import * as GoogleSignIn from 'expo-google-sign-in';
 import styled from 'styled-components/native';
-
 import _range from 'lodash/range';
+
+import { AppContext } from '../../contexts';
 import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 import useInterval from '../../hooks/useInterval';
+import { ScreenProps } from '../../types';
 import {
   iOSClientId,
   iOSExpoClientId,
@@ -25,7 +27,7 @@ const Container = styled.View`
   flex: 1;
   align-self: stretch;
   overflow: scroll;
-  background-color: ${({ theme }) => theme.backgroundDark};
+  background-color: ${({ theme }) => theme.marine};
 
   flex-direction: column;
   justify-content: flex-start;
@@ -80,7 +82,7 @@ const StyledText = styled.Text`
   font-weight: 600;
   line-height: 48;
   text-align: center;
-  color: ${({ theme }) => theme.fontLight};
+  color: white;
 `;
 
 const ButtonWrapper = styled.View`
@@ -97,7 +99,7 @@ const ButtonWrapper = styled.View`
 
 interface Props {
   store?: any;
-  screenProps?: any;
+  screenProps?: ScreenProps;
   navigation?: NavigationScreenProp<NavigationStateRoute<any>>;
 }
 
@@ -109,23 +111,7 @@ function Intro(props: Props) {
   const [googleUser, setGoogleUser] = useState(null);
   const [signingInFacebook, setSigningInFacebook] = useState(false);
   const [signingInGoogle, setSigningInGoogle] = useState(false);
-
-  // const changeTheme = () => {
-  //   let payload: object;
-  //   if (state.theme === ThemeType.LIGHT) {
-  //     payload = {
-  //       theme: ThemeType.DARK,
-  //     };
-  //   } else {
-  //     payload = {
-  //       theme: ThemeType.LIGHT,
-  //     };
-  //   }
-  //   dispatch({
-  //     type: 'change-theme-mode',
-  //     payload,
-  //   });
-  // };
+  const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
     initAsync();
@@ -208,10 +194,10 @@ function Intro(props: Props) {
   };
 
   const btnStyle = {
-    backgroundColor: 'white',
+    backgroundColor: props.screenProps.theme.background,
     borderWidth: 1,
     borderRadius: 0,
-    borderColor: props.screenProps.theme.btnWhiteBorder,
+    borderColor: props.screenProps.theme.background,
   };
 
   useInterval(() => {
@@ -232,7 +218,11 @@ function Intro(props: Props) {
           }}
         >
           <TitleWrapper>
-            <LogoImage source={IC_LOGO}/>
+            <TouchableOpacity
+              onPress={props.screenProps.changeTheme}
+            >
+              <LogoImage source={IC_LOGO}/>
+            </TouchableOpacity>
           </TitleWrapper>
           <SlashImage
             style={{
@@ -252,7 +242,7 @@ function Intro(props: Props) {
           </StyledAnimatableText>
           <StyledText>{getString('INTRO_MESSAGE')}</StyledText>
           <StyledText style={{
-            color: props.screenProps.theme.fontTint,
+            color: props.screenProps.theme.rosa,
           }}>{getString('INTRO_WHATSSUB')}</StyledText>
           <SlashImage
             style={{
@@ -267,7 +257,7 @@ function Intro(props: Props) {
               style={btnStyle}
               imgLeftSrc={IC_GOOGLE}
               isLoading={signingInGoogle}
-              indicatorColor={props.screenProps.theme.backgroundDark}
+              indicatorColor={props.screenProps.theme.marine}
               onClick={ () => googleSignInAsync() }
               text={getString('SIGN_IN_WITH_GOOGLE')}
             />
@@ -276,7 +266,7 @@ function Intro(props: Props) {
               testID='btnFacebook'
               style={btnStyle}
               imgLeftSrc={IC_FACEBOOK}
-              indicatorColor={props.screenProps.theme.backgroundDark}
+              indicatorColor={props.screenProps.theme.marine}
               isLoading={signingInFacebook}
               imgLeftStyle={{
                 height: 28,

@@ -4,7 +4,8 @@ import PieChart from '../PieChart';
 
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components/native';
-import { createTheme, ThemeType } from '../../../theme';
+import { createTheme } from '../../../theme';
+import { ThemeType } from '../../../types';
 
 const createTestProps = (obj: object) => ({
   navigation: {

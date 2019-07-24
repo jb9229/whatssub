@@ -10,7 +10,8 @@ import {
   RenderResult,
   fireEvent,
 } from '@testing-library/react-native';
-import { createTheme, ThemeType } from '../../../theme';
+import { createTheme } from '../../../theme';
+import { ThemeType } from '../../../types';
 import { ThemeProvider } from 'styled-components/native';
 import { AppProvider } from '../../../providers';
 

@@ -5,7 +5,9 @@ import * as React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import renderer from 'react-test-renderer';
 
-import { createTheme, ThemeType } from '../../../theme';
+import { createTheme } from '../../../theme';
+import { ThemeType } from '../../../types';
+
 import Button from '../Button';
 
 const component = (props?: any) => {

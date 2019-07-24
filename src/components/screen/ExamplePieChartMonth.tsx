@@ -22,7 +22,7 @@ import { getString } from '../../../STRINGS';
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.backgroundDark};
+  background-color: ${(props) => props.theme.background};
   align-items: center;
   justify-content: flex-start;
 `;

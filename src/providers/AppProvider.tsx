@@ -1,16 +1,18 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { AppContext } from '../contexts';
-import { User } from '../types';
-import { ThemeType } from '../theme';
+import { ThemeType } from '../types';
 
 const AppConsumer = AppContext.Consumer;
 
 interface Action {
   type: 'change-theme-mode';
-  payload: any;
+  payload: {
+    theme: ThemeType,
+  };
 }
 
 interface Props {
+  theme?: ThemeType;
   children?: any;
 }
 
@@ -37,6 +39,15 @@ const reducer = (state: State, action: Action) => {
 function AppProvider(props: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
+
+  useEffect(() => {
+    dispatch({
+      type: 'change-theme-mode',
+      payload: {
+        theme: props.theme,
+      },
+    });
+  }, [props.theme]);
 
   return (
     <AppContext.Provider value={value}>
