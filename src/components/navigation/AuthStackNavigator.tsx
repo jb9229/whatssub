@@ -1,6 +1,11 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { createStackNavigator, NavigationRouteConfigMap, StackNavigatorConfig, NavigationContainer } from 'react-navigation';
+import {
+  createStackNavigator,
+  NavigationRouteConfigMap,
+  StackNavigatorConfig,
+  NavigationContainer,
+} from 'react-navigation';
 
 import IntroScreen from '../screen/Intro';
 
@@ -24,7 +29,8 @@ const navigatorConfig: StackNavigatorConfig = {
   initialRouteName: 'Intro',
   // header: null,
   // headerMode: 'none',
-  navigationOptions: ({ navigation, screenProps } : { navigation: any, screenProps: any }) => {
+  navigationOptions: ({ navigation, screenProps }
+    : { navigation: any, screenProps: any }) => {
     const { theme } = screenProps;
     return ({
       headerStyle: {
@@ -39,15 +45,16 @@ const navigatorConfig: StackNavigatorConfig = {
   },
 };
 
-const AuthStackNavigator: NavigationContainer = createStackNavigator(routeConfig, navigatorConfig);
+const AuthStackNavigator: NavigationContainer =
+  createStackNavigator(routeConfig, navigatorConfig);
 
-interface IProps {
+interface Props {
   navigation?: any;
   theme?: object;
   screenProps?: any;
 }
 
-class RootNavigator extends React.Component<IProps> {
+class RootNavigator extends React.Component<Props> {
   private static router = AuthStackNavigator.router;
 
   public render() {

@@ -24,11 +24,11 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-interface IProps {
+interface Props {
   navigation: any;
 }
 
-function Page(props: IProps) {
+function Page(props: Props) {
   return (
     <Container>
       <Button

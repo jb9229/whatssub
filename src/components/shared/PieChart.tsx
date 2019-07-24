@@ -11,7 +11,7 @@ import { ColorProperty } from 'csstype';
 import { colors } from '../../theme';
 import { getString } from '../../../STRINGS';
 
-export interface IProduct {
+export interface Product {
   name: string;
   category: string;
   price: number;
@@ -47,16 +47,16 @@ const StyledTextInfoValue = styled.Text`
   color: ${colors.gray};
 `;
 
-type IProps = {
+interface Props {
   style?: ViewStyle;
-  data: IProduct[];
+  data: Product[];
   defaultShowSlice?: number;
   currentMonth: string;
 }
 
-const getCategoryPrice = (data: IProduct[]) => {
+const getCategoryPrice = (data: Product[]) => {
   const categoryPrice = {};
-  data && data.forEach((item:IProduct) => {
+  data && data.forEach((item:Product) => {
     if (!categoryPrice[item.category]) categoryPrice[item.category] = 0;
     categoryPrice[item.category] = categoryPrice[item.category] + item.price;
   });
@@ -64,7 +64,7 @@ const getCategoryPrice = (data: IProduct[]) => {
 };
 const initSelectedSlice = { key: '', value: 0 };
 
-export default function SharedPieChart(props: IProps) {
+export default function SharedPieChart(props: Props) {
   const [selectedSlice, setSelectedSlice] = React.useState(initSelectedSlice);
   // Total Amount by Category
   const categoryPrice = React.useMemo(() => {
@@ -81,30 +81,33 @@ export default function SharedPieChart(props: IProps) {
     return (props.data && props.data[0].currency) || '원';
   }, [props.data]);
 
-  const pieData = categoryPrice && Object.keys(categoryPrice).map((category, index) => {
-    const color = (selectedSlice.key === category) ? 'rgb(62,126,255)'
-      : index % 3 === 0 ? '#666666' : index % 3 === 1 ? '#999999' : '#cccccc';
-    return {
-      key: category,
-      value: categoryPrice[category],
-      svg: { fill: color },
-      arc: {
-        innerRadius: (selectedSlice.key === category ? '75%' : '80%'),
-        outerRadius: (selectedSlice.key === category ? '100%' : '90%'),
-        padAngle: (selectedSlice.key === category ? 0 : 0.02),
-      },
-      onPress: () => {
-        setSelectedSlice({
-          key: category,
-          value: categoryPrice[category],
-        });
-      },
-    };
-  });
+  const pieData = categoryPrice && Object.keys(categoryPrice)
+    .map((category, index) => {
+      const color = (selectedSlice.key === category) ? 'rgb(62,126,255)'
+        : index % 3 === 0 ? '#666666' : index % 3 === 1 ? '#999999' : '#cccccc';
+      return {
+        key: category,
+        value: categoryPrice[category],
+        svg: { fill: color },
+        arc: {
+          innerRadius: (selectedSlice.key === category ? '75%' : '80%'),
+          outerRadius: (selectedSlice.key === category ? '100%' : '90%'),
+          padAngle: (selectedSlice.key === category ? 0 : 0.02),
+        },
+        onPress: () => {
+          setSelectedSlice({
+            key: category,
+            value: categoryPrice[category],
+          });
+        },
+      };
+    });
 
   React.useEffect(() => {
     if (props.defaultShowSlice >= 0) {
-      const num = props.defaultShowSlice > (pieData.length - 1) ? 0 : props.defaultShowSlice;
+      const num = props.defaultShowSlice > (pieData.length - 1)
+        ? 0
+        : props.defaultShowSlice;
       (pieData.length > 0) && setSelectedSlice({
         key: pieData[num].key,
         value: pieData[num].value,
@@ -115,7 +118,13 @@ export default function SharedPieChart(props: IProps) {
     return (
       <Container style={props.style}>
         {/** Data View for Selected Slice */}
-        <StyledViewInfo style={{ position: 'absolute', left: '75%', top: 0, width: 100, height: 50 }}>
+        <StyledViewInfo style={{
+          position: 'absolute',
+          left: '75%',
+          top: 0,
+          width: 100,
+          height: 50,
+        }}>
           <StyledTextInfoCategory>
             {`${selectedSlice.key}`}
           </StyledTextInfoCategory>
@@ -127,7 +136,6 @@ export default function SharedPieChart(props: IProps) {
         <PieChart
           style={{ width: 214, height: 214 }}
           data={pieData}
-          spacing={0}
           // outerRadius={'100%'}
           // innerRadius={'90%'}
           // valueAccessor={({ item }) => item.amount}
@@ -135,7 +143,11 @@ export default function SharedPieChart(props: IProps) {
           {/* <Labels slices={null} height={null} width={null}/> */}
         </PieChart>
         {/** centered elements : month, total amount to be paid,  */}
-        <View style={{ position: 'absolute', justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{
+          position: 'absolute',
+          justifyContent: 'center',
+          alignItems: 'center' }}
+        >
           <StyledTextMonth style={{}}>
             {`${props.currentMonth || '2016.00'}`}
           </StyledTextMonth>
@@ -145,7 +157,8 @@ export default function SharedPieChart(props: IProps) {
           <StyledText style={{ fontSize: 24, color: colors.darkGray }}>
             {`${totalPrice}${currency}`}
           </StyledText>
-          {/* <StyledText style={{ fontSize: 20 }}>{`${selectedSlice.key} \n ${selectedSlice.value}`}</StyledText> */}
+          {/* <StyledText style={{ fontSize: 20 }}>
+          {`${selectedSlice.key} \n ${selectedSlice.value}`}</StyledText> */}
         </View>
       </Container>
     );

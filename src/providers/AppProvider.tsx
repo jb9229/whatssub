@@ -10,7 +10,7 @@ interface IAction {
   payload: any;
 }
 
-interface IProps {
+interface Props {
   children?: any;
 }
 
@@ -34,7 +34,7 @@ const reducer = (state: IState, action: IAction) => {
   }
 };
 
-function AppProvider(props: IProps) {
+function AppProvider(props: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
 

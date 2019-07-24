@@ -15,7 +15,7 @@ import {
 
 import styled from 'styled-components/native';
 
-import PieChart, { IProduct } from '../shared/PieChart';
+import PieChart, { Product } from '../shared/PieChart';
 
 import Button from '../shared/Button';
 import { getString } from '../../../STRINGS';
@@ -27,11 +27,11 @@ const Container = styled.View`
   justify-content: flex-start;
 `;
 
-interface IProps {
+interface Props {
   navigation: any;
 }
 
-function Page(props: IProps) {
+function Page(props: Props) {
   const [data, setData] = React.useState(null);
   const [selectedMonth, setSelectedMonth] = React.useState('2019.06');
   React.useEffect(() => {
@@ -40,7 +40,11 @@ function Page(props: IProps) {
   }, [selectedMonth]);
 
   return (
-    <Container style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+    <Container style={{
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'white',
+    }}>
       <PieChart
         data={data}
         style={{ width: 300, height: 300 }}
@@ -69,7 +73,7 @@ function Page(props: IProps) {
 
 export default Page;
 
-const sampleDatas: { [ key : string ]: IProduct[] } = {
+const sampleDatas: { [ key : string ]: Product[] } = {
   2019.06: [
     {
       name: 'prod_1',

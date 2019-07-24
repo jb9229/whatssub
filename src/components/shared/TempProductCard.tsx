@@ -6,15 +6,14 @@ import styled from 'styled-components/native';
 const Container = styled.View`
   flex: 1;
   background-color: ${(props) => props.theme.backgroundDark};
-  padding-vertical: 100;
-  padding-horizontal: 20;
+  padding: 100px 20px;
 `;
 
-interface IProps {
+interface Props {
   navigation: any;
 }
 
-function Page(props: IProps) {
+function Page(props: Props) {
   const [isNotificationEnable1, setNotificationEnable1] = useState(false);
   const [isSubscribing1, setSubscribing1] = useState(false);
   const [isNotificationEnable2, setNotificationEnable2] = useState(false);
@@ -24,7 +23,7 @@ function Page(props: IProps) {
         <ProductCard
           onClickNotification={() => setNotificationEnable1((prev) => !prev)}
           onClickSubscription={() => setSubscribing1((prev) => !prev)}
-          onClickEdit={() => console.log('clickEdit')}
+          onClickEdit={() => {}}
           isNotificationEnable={isNotificationEnable1}
           isSubscribing={isSubscribing1}
           name='netflix'
@@ -38,7 +37,7 @@ function Page(props: IProps) {
       <View style={{ marginTop: 10 }}>
         <ProductCard
           onClickNotification={() => setNotificationEnable2((prev) => !prev)}
-          onClickEdit={() => console.log('clickEdit')}
+          onClickEdit={() => {}}
           isNotificationEnable={isNotificationEnable2}
           name='전세대출금'
           image='https://dummyimage.com/31x31/000/fff'

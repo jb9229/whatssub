@@ -11,13 +11,15 @@ import * as GoogleSignIn from 'expo-google-sign-in';
 import styled from 'styled-components/native';
 
 import _range from 'lodash/range';
-import { AppProvider as Provider, AppConsumer, AppContext } from '../../providers';
-import { ThemeType } from '../../theme';
 import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 import useInterval from '../../hooks/useInterval';
-import { iOSClientId, iOSExpoClientId, androidExpoClientId } from '../../../config';
+import {
+  iOSClientId,
+  iOSExpoClientId,
+  androidExpoClientId,
+} from '../../../config';
 
 const Container = styled.View`
   flex: 1;
@@ -93,15 +95,16 @@ const ButtonWrapper = styled.View`
   align-items: center;
 `;
 
-interface IProps {
+interface Props {
   store?: any;
   screenProps?: any;
   navigation?: NavigationScreenProp<NavigationStateRoute<any>>;
 }
 
-export const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
+export const titleArray =
+  _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
 
-function Intro(props: IProps) {
+function Intro(props: Props) {
   const [titleIndex, setTitleIndex] = React.useState(0);
   const [googleUser, setGoogleUser] = useState(null);
   const [signingInFacebook, setSigningInFacebook] = useState(false);
@@ -126,7 +129,7 @@ function Intro(props: IProps) {
 
   useEffect(() => {
     initAsync();
-    console.log('appOwnership', Constants.appOwnership);
+    // console.log('appOwnership', Constants.appOwnership);
   }, []);
 
   const initAsync = async () => {
@@ -152,9 +155,9 @@ function Intro(props: IProps) {
             android: androidExpoClientId,
           }),
         });
-        console.log(response);
+        // console.log(response);
       } catch ({ message }) {
-        console.log('err', message);
+        // console.log('err', message);
       } finally {
         setSigningInGoogle(false);
       }
@@ -183,13 +186,14 @@ function Intro(props: IProps) {
       const {
         type,
         token,
-      } = await Facebook.logInWithReadPermissionsAsync(Constants.manifest.facebookAppId, {
-        permissions: ['public_profile'],
-      });
+      } = await Facebook.logInWithReadPermissionsAsync(
+        Constants.manifest.facebookAppId, {
+          permissions: ['public_profile'],
+        });
       if (type === 'success') {
         // Build Firebase credential with the Facebook access token.
-        // const credential = firebase.auth.FacebookAuthProvider.credential(token);
-
+        // const credential = firebase.auth
+        // .FacebookAuthProvider.credential(token);
         // Sign in with credential from the Facebook user.
         // await firebase.auth().signInWithCredential(credential);
       } else {

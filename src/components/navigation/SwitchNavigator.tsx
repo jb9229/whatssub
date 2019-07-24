@@ -23,13 +23,13 @@ const SwitchNavigator: NavigationContainer = createSwitchNavigator(
     MainEmpty,
   },
   {
-    initialRouteName: 'ExamplePieChartMonth',
+    initialRouteName: 'MainEmpty',
   },
 );
 
 const AppContainer = createAppContainer(SwitchNavigator);
 
-export default () => {
+export default function MySwitchNavigator() {
   const { state } = useContext(AppContext);
   const { theme } = state;
 

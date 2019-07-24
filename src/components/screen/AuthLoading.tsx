@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 
 import { IMG_GIF_SPLASH } from '../../utils/Images';
 
-interface IProps {
+interface Props {
   navigation: NavigationScreenProp<NavigationState>;
 }
 
@@ -31,7 +31,7 @@ const StyledText = styled.Text`
   bottom: 50;
 `;
 
-export default (props: IProps) => {
+export default function AuthLoading(props: Props) {
   const [areResourcesReady, setResourcesReady] = useState(false);
   const [isAppReady, setAppReady] = useState(false);
 
@@ -64,8 +64,7 @@ export default (props: IProps) => {
             setTimeout(() => {
               setAppReady(true);
             }, SPLASH_SHOW_TIME);
-
-            SplashScreen.hide(); // Image is fully presented, instruct SplashScreen to hide
+            SplashScreen.hide();
           }}
         />
         <StyledText>ⓒ Whatssub Studio</StyledText>

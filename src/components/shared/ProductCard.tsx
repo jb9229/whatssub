@@ -14,8 +14,7 @@ const Container = styled.View<{ isSummary: boolean }>`
   width: 100%;
   height: ${({ isSummary }) => isSummary ? '82' : '190'};
   background-color: white;
-  padding-vertical: 15;
-  padding-horizontal: 22;
+  padding: 15px 22px;
   border-radius: 15;
   
 `;
@@ -82,16 +81,22 @@ const PriceText = styled.Text`
 `;
 
 const DateText = styled.Text<{ variant: Variant, isSummary: boolean }>`
-  font-family: ${({ isSummary }) => isSummary ? 'spoqa-han-sans-bold' : 'spoqa-han-sans-regular'};
-  font-size: ${({ isSummary }) => isSummary ? '16' : '40'};
+  font-family: ${({ isSummary }) =>
+    isSummary ? 'spoqa-han-sans-bold' : 'spoqa-han-sans-regular'};
+  font-size: ${({ isSummary }) =>
+    isSummary ? '16' : '40'};
   text-align: center;
-  color: ${({ variant }) => variant === 'subscription' ? 'rgb(255, 77, 108)' : 'rgb(62, 126, 255)'};
+  color: ${({ variant }) =>
+    variant === 'subscription'
+      ? 'rgb(255, 77, 108)'
+      : 'rgb(62, 126, 255)'};
 `;
 
 const ProductImage = styled.Image<{isSubscription: boolean}>`
   width: ${({ isSubscription }) => isSubscription ? '75' : '31'};
   height: ${({ isSubscription }) => isSubscription ? '20' : '31'};
-  margin-vertical: ${({ isSubscription }) => isSubscription ? '10' : '0'};
+  margin-top: ${({ isSubscription }) => isSubscription ? '10' : '0'};
+  margin-bottom: ${({ isSubscription }) => isSubscription ? '10' : '0'};
   margin-right: auto;
   margin-left: auto;
 `;
@@ -117,7 +122,7 @@ export enum Variant {
   Payment = 'payment',
 };
 
-type Props = {
+interface Props {
   onClickNotification: () => void;
   onClickSubscription?: () => void;
   onClickEdit: () => void;
@@ -145,7 +150,8 @@ function Shared(props: Props) {
     onClickEdit,
     defaultIsSummary = false,
   } = props;
-  const dDay = moment(currentMonthPaymentDate).diff(moment().startOf('day'), 'day');
+  const dDay = moment(currentMonthPaymentDate)
+    .diff(moment().startOf('day'), 'day');
   const isSubscription = variant === Variant.Subscription;
   const [isSummary, setIsSummary] = useState(defaultIsSummary);
 
@@ -171,8 +177,10 @@ function Shared(props: Props) {
     </TouchableOpacity>;
 
   const renderSwitch = <SwitchToggle
-    backTextRight={isSubscribing ? '' : getString('PRODUCTION_CARD_SUBSCRIPTION_SWITCH_OFF')}
-    backTextLeft={isSubscribing ? getString('PRODUCTION_CARD_SUBSCRIPTION_SWITCH_ON') : ''}
+    backTextRight={isSubscribing
+      ? '' : getString('PRODUCTION_CARD_SUBSCRIPTION_SWITCH_OFF')}
+    backTextLeft={isSubscribing
+      ? getString('PRODUCTION_CARD_SUBSCRIPTION_SWITCH_ON') : ''}
     textRightStyle={{ color: 'white', position: 'absolute', left: 5, top: -7 }}
     textLeftStyle={{ color: 'white', position: 'absolute', left: 5, top: -7 }}
     switchOn={isSubscribing}
@@ -193,13 +201,19 @@ function Shared(props: Props) {
             </SummaryTitleTextWrapper>
             <SummaryContentViewWrapper>
               <SummaryContentView>
-                <DateText variant={variant} isSummary={isSummary}>{`D-${dDay}`}</DateText>
+                <DateText variant={variant} isSummary={isSummary}>
+                  {`D-${dDay}`}
+                </DateText>
                 {isSubscription ? renderSwitch : renderNoti}
               </SummaryContentView>
             </SummaryContentViewWrapper>
           </>
           : <>
-            <ProductImage source={{ uri: image }} isSubscription={isSubscription} testID='productImg'/>
+            <ProductImage
+              testID='productImg'
+              source={{ uri: image }}
+              isSubscription={isSubscription}
+            />
             <HeaderView isSubscription={isSubscription}>
               <IconWrapper>
                 <TouchableOpacity onPress={onClickEdit}>
@@ -211,8 +225,13 @@ function Shared(props: Props) {
             </HeaderView>
             <ContentView>
               <TitleText>{name}</TitleText>
-              <DateText variant={variant} isSummary={false}>{`D-${dDay}`}</DateText>
-              <ContentText>{`${moment(currentMonthPaymentDate).format('M월 D일')}에 ${price && price.toLocaleString()}원이 결제될 예정입니다.`}</ContentText>
+              <DateText variant={variant} isSummary={false}>
+                {`D-${dDay}`}
+              </DateText>
+              <ContentText>
+                {`${moment(currentMonthPaymentDate).format('M월 D일')}에
+                  ${price && price.toLocaleString()}원이 결제될 예정입니다.`}
+              </ContentText>
             </ContentView>
           </>
         }
