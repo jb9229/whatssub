@@ -24,7 +24,7 @@ module.exports =  {
     'no-unused-vars': 0,
     // '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/interface-name-prefix': 'warn',
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     'no-console': 'error',
     "react/jsx-uses-vars": [2],
     'max-len': ['error', { code: 80 }],

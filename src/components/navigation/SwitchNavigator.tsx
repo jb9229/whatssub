@@ -23,7 +23,7 @@ const SwitchNavigator: NavigationContainer = createSwitchNavigator(
     MainEmpty,
   },
   {
-    initialRouteName: 'MainEmpty',
+    initialRouteName: 'AuthLoadingScreen',
   },
 );
 
