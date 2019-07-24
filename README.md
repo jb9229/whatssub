@@ -1,7 +1,7 @@
 # whatssub
 [![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-ts.svg?style=shield)](https://circleci.com/gh/dooboolab/whatssub)
 [![codecov](https://codecov.io/gh/dooboolab/whatssub/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/whatssub)
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 ![whatssub](https://user-images.githubusercontent.com/27461460/60770813-1b415980-a11a-11e9-9dfb-6993b6816a07.gif)
@@ -242,6 +242,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/JongtaekChoi"><img src="https://avatars1.githubusercontent.com/u/17980230?v=4" width="60px;" alt="Choi, Jongtaek"/><br /><sub><b>Choi, Jongtaek</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=JongtaekChoi" title="Code">💻</a> <a href="https://github.com/dooboolab/whatssub/commits?author=JongtaekChoi" title="Tests">⚠️</a> <a href="https://github.com/dooboolab/whatssub/commits?author=JongtaekChoi" title="Documentation">📖</a></td>
     <td align="center"><a href="https://www.facebook.com/huy1965"><img src="https://avatars3.githubusercontent.com/u/1715578?v=4" width="60px;" alt="Huy, Tae Young"/><br /><sub><b>Huy, Tae Young</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=kty1965" title="Code">💻</a> <a href="https://github.com/dooboolab/whatssub/commits?author=kty1965" title="Tests">⚠️</a> <a href="https://github.com/dooboolab/whatssub/commits?author=kty1965" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/YongPilMoon"><img src="https://avatars1.githubusercontent.com/u/22088158?v=4" width="60px;" alt="YongPilMoon"/><br /><sub><b>YongPilMoon</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=YongPilMoon" title="Code">💻</a> <a href="https://github.com/dooboolab/whatssub/commits?author=YongPilMoon" title="Tests">⚠️</a> <a href="https://github.com/dooboolab/whatssub/commits?author=YongPilMoon" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/bumjoo"><img src="https://avatars1.githubusercontent.com/u/43266906?v=4" width="60px;" alt="bumjoo.lee"/><br /><sub><b>bumjoo.lee</b></sub></a><br /><a href="https://github.com/dooboolab/whatssub/commits?author=bumjoo" title="Code">💻</a> <a href="https://github.com/dooboolab/whatssub/commits?author=bumjoo" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
