@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react';
 import { AppContext } from '../contexts';
-import { IUser } from '../types';
+import { User } from '../types';
 import { ThemeType } from '../theme';
 
 const AppConsumer = AppContext.Consumer;
 
-interface IAction {
+interface Action {
   type: 'change-theme-mode';
   payload: any;
 }
@@ -14,15 +14,15 @@ interface Props {
   children?: any;
 }
 
-interface IState {
+interface State {
   theme: ThemeType;
 }
 
-const initialState: IState = {
+const initialState: State = {
   theme: ThemeType.LIGHT,
 };
 
-const reducer = (state: IState, action: IAction) => {
+const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case 'change-theme-mode':
       return {

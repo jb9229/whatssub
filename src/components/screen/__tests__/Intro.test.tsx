@@ -6,7 +6,13 @@ import { AuthSession, AppAuth } from 'expo';
 // Note: test renderer must be required after react-native.
 import { ThemeProvider } from 'styled-components/native';
 import renderer from 'react-test-renderer';
-import { render, fireEvent, act, RenderResult, cleanup } from '@testing-library/react-native';
+import {
+  render,
+  fireEvent,
+  act,
+  RenderResult,
+  cleanup,
+} from '@testing-library/react-native';
 import _range from 'lodash/range';
 import Intro from '../Intro';
 import { AppProvider } from '../../../providers';
@@ -15,7 +21,8 @@ import { createTheme, ThemeType } from '../../../theme';
 
 import { getString } from '../../../../STRINGS';
 
-const titleArray = _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
+const titleArray =
+  _range(5).map((index: number) => getString(`INTRO_TITLE_${index + 1}`));
 const createTestProps = (obj: object) => ({
   navigation: {
     navigate: jest.fn(),
@@ -68,7 +75,9 @@ describe('[Intro] screen useTransition with setInterval test', () => {
   it('should match the second title text after 1500ms', () => {
     const { getByTestId } = render(<RTLComponent {...props} />);
     setTimeout(() => {
-      expect(getByTestId('animatableText').props.children).toBe(titleArray[1]); // 'Subscription'
+      expect(
+        getByTestId('animatableText').props.children).toBe(titleArray[1],
+      ); // 'Subscription'
     }, 2000);
     jest.clearAllTimers();
   });

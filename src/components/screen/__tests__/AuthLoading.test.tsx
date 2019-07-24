@@ -19,7 +19,8 @@ describe('[AuthLoading] render', () => {
   });
 
   it('component and snapshot matches', () => {
-    const rendered: renderer.ReactTestRendererJSON = renderer.create(<AuthLoading {...props} />).toJSON();
+    const rendered: renderer.ReactTestRendererJSON =
+      renderer.create(<AuthLoading {...props} />).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 });

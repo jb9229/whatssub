@@ -4,8 +4,6 @@ import ExamplePieChartMonth from '../ExamplePieChartMonth';
 
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components/native';
-import { render, fireEvent, act, RenderResult } from '@testing-library/react-native';
-
 import { createTheme, ThemeType } from '../../../theme';
 
 const createTestProps = (obj: object) => ({

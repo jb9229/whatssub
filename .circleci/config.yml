@@ -52,7 +52,7 @@ jobs:
           name: Jest Test
           command: |
             mkdir -p coverage
-            yarn run test -- --coverage
+            yarn run test --coverage
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 

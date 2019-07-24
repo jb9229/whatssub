@@ -12,7 +12,7 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "node node_modules/jest/bin/jest.js",
-    "lint": "eslint src/**/**/*.ts && eslint src/**/**/*.tsx",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
     "cp:config": "cp config.sample.ts config.ts"
   },
   "private": true,

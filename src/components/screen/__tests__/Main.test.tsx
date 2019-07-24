@@ -3,7 +3,12 @@ import * as React from 'react';
 import Main from '../Main';
 
 import renderer from 'react-test-renderer';
-import { render, fireEvent, act, RenderResult } from '@testing-library/react-native';
+import {
+  render,
+  fireEvent,
+  act,
+  RenderResult,
+} from '@testing-library/react-native';
 
 const createTestProps = (props: Object) => ({
   navigation: {
@@ -23,7 +28,8 @@ describe('[Main]', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON = renderer.create(<Main />).toJSON();
+    const rendered: renderer.ReactTestRendererJSON =
+      renderer.create(<Main />).toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });

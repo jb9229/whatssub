@@ -39,7 +39,7 @@ describe('[Button]', () => {
     });
 
     it('renders disabled', () => {
-      rendered = renderer.create(component({ isDisabled:  true }));
+      rendered = renderer.create(component({ isDisabled: true }));
       root = rendered.root;
 
       const texts = root.findAllByType(Text);

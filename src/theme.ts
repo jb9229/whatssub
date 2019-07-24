@@ -1,4 +1,4 @@
-interface ITheme {
+interface Theme {
   colors: object
 };
 

@@ -4,7 +4,12 @@ import ProductCard from '../ProductCard';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { render, act, RenderResult, fireEvent } from '@testing-library/react-native';
+import {
+  render,
+  act,
+  RenderResult,
+  fireEvent,
+} from '@testing-library/react-native';
 import { createTheme, ThemeType } from '../../../theme';
 import { ThemeProvider } from 'styled-components/native';
 import { AppProvider } from '../../../providers';
@@ -30,7 +35,7 @@ describe('[ProductCard] ui rendering test', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  it('should include subscription button when "variant" is subscription', () => {
+  it('should include button when "variant" is subscription', () => {
     const Component = component({ variant: 'subscription' });
     act(() => {
       rendered = renderer.create(Component).toJSON();
@@ -54,7 +59,10 @@ describe('[ProductCard] Interaction', () => {
 
   it('should simulate [notification Icon] click', () => {
     let cnt = 0;
-    const Component = component({ isNotificationEnable: true, onClickNotification: () => cnt++ });
+    const Component = component({
+      isNotificationEnable: true,
+      onClickNotification: () => cnt++,
+    });
     testingLib = render(Component);
     act(() => {
       fireEvent.press(testingLib.getByTestId('notiOffIcon'));
