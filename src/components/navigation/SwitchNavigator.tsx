@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { createTheme } from '../../theme';
 import AuthStackNavigator from './AuthStackNavigator';
 import MainStackNavigator from './MainStackNavigator';
-import TempScreen from '../screen/Temp';
+import MainEmpty from '../screen/MainEmpty';
 import AuthLoadingScreen from '../screen/AuthLoading';
 import ExamplePieChartMonth from '../screen/ExamplePieChartMonth';
 
@@ -19,8 +19,8 @@ const SwitchNavigator: NavigationContainer = createSwitchNavigator(
     AuthLoadingScreen,
     AuthStackNavigator,
     MainStackNavigator,
-    TempScreen,
     ExamplePieChartMonth,
+    MainEmpty,
   },
   {
     initialRouteName: 'ExamplePieChartMonth',

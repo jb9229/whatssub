@@ -5,3 +5,5 @@ export const IC_SLASH = require('../../assets/icons/slash.png');
 export const IC_NOTI_ON = require('../../assets/icons/alarmOn.png');
 export const IC_NOTI_OFF = require('../../assets/icons/alarmOff.png');
 export const IC_EDIT = require('../../assets/icons/edit.png');
+export const IC_ADD = require('../../assets/icons/add.png');
+export const IC_ADD_SERVICE = require('../../assets/icons/addService.png');

@@ -19,6 +19,9 @@ const en = {
   CATEGORY_CULTURE_LEISURE: 'Culture/Leisure',
   CATEGORY_EDUCATION: 'Education',
   CATEGORY_GAME: 'Game',
+  EMPTY_WELCOME: 'WelCome',
+  EMPTY_COMMENT1: 'Press + button',
+  EMPTY_COMMENT2: 'Register the service in use',
 };
 
 const ko = {
@@ -39,6 +42,9 @@ const ko = {
   CATEGORY_CULTURE_LEISURE: '문화/여가',
   CATEGORY_EDUCATION: '교육',
   CATEGORY_GAME: '게임',
+  EMPTY_WELCOME: '반갑습니다',
+  EMPTY_COMMENT1: '+ 버튼을 눌러',
+  EMPTY_COMMENT2: '사용중인 서비스를 등록해 볼까요',
 };
 
 i18n.fallbacks = true;

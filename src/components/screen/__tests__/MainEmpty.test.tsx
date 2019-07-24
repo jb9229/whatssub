@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components/native';
 import { render, fireEvent, act, RenderResult } from '@testing-library/react-native';
 
 import { createTheme, ThemeType } from '../../../theme';
-import Temp from '../Temp';
+import MainEmpty from '../MainEmpty';
 
 const props = {
   navigation: {
@@ -16,14 +16,13 @@ const props = {
 
 const component = (
   <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
-    <Temp {...props} />
+    <MainEmpty {...props} />
   </ThemeProvider>
 );
 
 describe('[Temp] render', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(component).toJSON();
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
@@ -33,11 +32,5 @@ describe('[Temp] Interaction', () => {
 
   beforeEach(() => {
     renderResult = render(component);
-  });
-
-  it('should simulate [onClick] when [btn] has been clicked', () => {
-    const btnInstance = renderResult.getByTestId('btn');
-    fireEvent.press(btnInstance);
-    expect(props.navigation.goBack).toHaveBeenCalled();
   });
 });
