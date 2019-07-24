@@ -1,19 +1,20 @@
 import 'react-native';
 import * as React from 'react';
+import {
+  RenderResult,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
+
+import { AppProvider } from '../../../providers';
 import ProductCard from '../ProductCard';
+import { ThemeProvider } from 'styled-components/native';
+import { ThemeType } from '../../../types';
+import { createTheme } from '../../../theme';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import {
-  render,
-  act,
-  RenderResult,
-  fireEvent,
-} from '@testing-library/react-native';
-import { createTheme } from '../../../theme';
-import { ThemeType } from '../../../types';
-import { ThemeProvider } from 'styled-components/native';
-import { AppProvider } from '../../../providers';
 
 const component = (props?: any) => {
   return (

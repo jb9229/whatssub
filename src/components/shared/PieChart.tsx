@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {
-  View,
   Text,
+  View,
   ViewStyle,
 } from 'react-native';
 
-import styled from 'styled-components/native';
-import { PieChart } from 'react-native-svg-charts';
 import { ColorProperty } from 'csstype';
+import { PieChart } from 'react-native-svg-charts';
 import { colors } from '../../theme';
 import { getString } from '../../../STRINGS';
+import styled from 'styled-components/native';
 
 export interface Product {
   name: string;

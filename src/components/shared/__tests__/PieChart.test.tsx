@@ -2,10 +2,11 @@ import 'react-native';
 import * as React from 'react';
 import PieChart from '../PieChart';
 
-import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components/native';
-import { createTheme } from '../../../theme';
 import { ThemeType } from '../../../types';
+import { createTheme } from '../../../theme';
+
+import renderer from 'react-test-renderer';
 
 const createTestProps = (obj: object) => ({
   navigation: {

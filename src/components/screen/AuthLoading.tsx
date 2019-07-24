@@ -1,10 +1,9 @@
+import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import React, { useState } from 'react';
 import { Asset } from 'expo-asset';
-import { SplashScreen } from 'expo';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
-import styled from 'styled-components/native';
-
 import { IMG_GIF_SPLASH } from '../../utils/Images';
+import { SplashScreen } from 'expo';
+import styled from 'styled-components/native';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState>;

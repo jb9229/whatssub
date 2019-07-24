@@ -1,13 +1,11 @@
-import React from 'react';
-import { Text } from 'react-native';
 import {
-  createStackNavigator,
+  NavigationContainer,
   NavigationRouteConfigMap,
   StackNavigatorConfig,
-  NavigationContainer,
+  createStackNavigator,
 } from 'react-navigation';
-
 import Main from '../screen/Main';
+import React from 'react';
 import { ScreenProps } from '../../types';
 
 const routeConfig: NavigationRouteConfigMap = {

@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import { AsyncStorage } from 'react-native';
 import {
-  createSwitchNavigator,
-  createAppContainer,
   NavigationContainer,
+  createAppContainer,
+  createSwitchNavigator,
 } from 'react-navigation';
-
-import AuthStackNavigator from './AuthStackNavigator';
-import MainStackNavigator from './MainStackNavigator';
+import React, { useContext } from 'react';
 import { AppContext } from '../../contexts';
-import { ThemeProvider } from 'styled-components';
-import { createTheme } from '../../theme';
-import { ThemeType } from '../../types';
-import MainEmpty from '../screen/MainEmpty';
+import { AsyncStorage } from 'react-native';
+
 import AuthLoadingScreen from '../screen/AuthLoading';
+import AuthStackNavigator from './AuthStackNavigator';
 import ExamplePieChartMonth from '../screen/ExamplePieChartMonth';
+import MainEmpty from '../screen/MainEmpty';
+import MainStackNavigator from './MainStackNavigator';
+import { ThemeProvider } from 'styled-components';
+import { ThemeType } from '../../types';
+import { createTheme } from '../../theme';
 
 const SwitchNavigator: NavigationContainer = createSwitchNavigator(
   {

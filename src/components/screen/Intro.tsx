@@ -1,27 +1,28 @@
-import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { AuthSession, AppAuth, Google } from 'expo';
-import Constants from 'expo-constants';
 import * as Facebook from 'expo-facebook';
-import {
-  View, Platform, TouchableOpacity,
-} from 'react-native';
-import { Text } from 'react-native-animatable';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import * as GoogleSignIn from 'expo-google-sign-in';
-import styled from 'styled-components/native';
-import _range from 'lodash/range';
-
-import { AppContext } from '../../contexts';
-import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../utils/Icons';
-import { getString } from '../../../STRINGS';
-import Button from '../shared/Button';
-import useInterval from '../../hooks/useInterval';
-import { ScreenProps } from '../../types';
+import { AppAuth, AuthSession, Google } from 'expo';
+import { IC_FACEBOOK, IC_GOOGLE, IC_LOGO, IC_SLASH } from '../../utils/Icons';
+import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import {
+  Platform, TouchableOpacity, View,
+} from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import {
+  androidExpoClientId,
   iOSClientId,
   iOSExpoClientId,
-  androidExpoClientId,
 } from '../../../config';
+
+import { AppContext } from '../../contexts';
+import Button from '../shared/Button';
+import Constants from 'expo-constants';
+import { ScreenProps } from '../../types';
+import { Text } from 'react-native-animatable';
+import _range from 'lodash/range';
+import { getString } from '../../../STRINGS';
+import styled from 'styled-components/native';
+
+import useInterval from '../../hooks/useInterval';
 
 const Container = styled.View`
   flex: 1;

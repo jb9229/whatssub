@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import styled from 'styled-components/native';
 import {
   ActivityIndicator,
+  ImageStyle,
+  TextStyle,
   TouchableOpacity,
   ViewStyle,
-  TextStyle,
-  ImageStyle,
 } from 'react-native';
+import React, { Component } from 'react';
+import styled from 'styled-components/native';
 
 const StyledButton = styled.View`
   background-color: ${({ theme }) => theme.marine};

@@ -1,12 +1,11 @@
 import 'react-native';
 import * as React from 'react';
-import { ThemeProvider } from 'styled-components/native';
-import renderer from 'react-test-renderer';
 import { render, wait } from '@testing-library/react-native';
-
-import AuthLoading from '../AuthLoading';
-import { createTheme } from '../../../theme';
 import { AppProvider } from '../../../providers';
+import AuthLoading from '../AuthLoading';
+import { ThemeProvider } from 'styled-components/native';
+import { createTheme } from '../../../theme';
+import renderer from 'react-test-renderer';
 
 const createTestProps = (props: Object) => ({
   navigation: {

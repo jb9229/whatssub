@@ -1,14 +1,14 @@
 import 'react-native';
 import * as React from 'react';
+import {
+  RenderResult,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 import Main from '../Main';
 
 import renderer from 'react-test-renderer';
-import {
-  render,
-  fireEvent,
-  act,
-  RenderResult,
-} from '@testing-library/react-native';
 
 const createTestProps = (props: Object) => ({
   navigation: {

@@ -1,14 +1,12 @@
-import { Text } from 'react-native';
 import * as React from 'react';
+import Button from '../Button';
+import { Text } from 'react-native';
 
 // Note: test renderer must be required after react-native.
 import { ThemeProvider } from 'styled-components/native';
-import renderer from 'react-test-renderer';
-
-import { createTheme } from '../../../theme';
 import { ThemeType } from '../../../types';
-
-import Button from '../Button';
+import { createTheme } from '../../../theme';
+import renderer from 'react-test-renderer';
 
 const component = (props?: any) => {
   return (

@@ -1,6 +1,6 @@
+import ProductCard, { Variant } from '../../components/shared/ProductCard';
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import ProductCard, { Variant } from '../../components/shared/ProductCard';
 import styled from 'styled-components/native';
 
 const Container = styled.View`

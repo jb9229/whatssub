@@ -1,10 +1,10 @@
+import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import React, { Component } from 'react';
 import {
-  View,
   Text,
+  View,
 } from 'react-native';
 
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import styled from 'styled-components/native';
 
 const Container = styled.View`

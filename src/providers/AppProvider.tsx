@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { AppContext } from '../contexts';
 import { ThemeType } from '../types';
 

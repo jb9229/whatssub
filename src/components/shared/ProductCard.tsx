@@ -1,12 +1,13 @@
+import { IC_EDIT, IC_NOTI_OFF, IC_NOTI_ON } from '../../utils/Icons';
 import React, { useState } from 'react';
-import moment from 'moment';
 import SwitchToggle from 'react-native-switch-toggle';
 import {
   TouchableOpacity,
 } from 'react-native';
-import styled from 'styled-components/native';
-import { IC_NOTI_ON, IC_NOTI_OFF, IC_EDIT } from '../../utils/Icons';
+
 import { getString } from '../../../STRINGS';
+import moment from 'moment';
+import styled from 'styled-components/native';
 
 const Container = styled.View<{ isSummary: boolean }>`
   display: flex;

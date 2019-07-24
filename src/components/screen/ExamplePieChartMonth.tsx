@@ -1,24 +1,12 @@
+import PieChart, { Product } from '../shared/PieChart';
 import React, { Component } from 'react';
 import {
-  Platform,
-  StatusBar,
-  StyleSheet,
-  TouchableHighlight,
-  Image,
-  ScrollView,
   Text,
-  View,
-  FlatList,
-  InteractionManager,
   TouchableOpacity,
 } from 'react-native';
-
-import styled from 'styled-components/native';
-
-import PieChart, { Product } from '../shared/PieChart';
-
 import Button from '../shared/Button';
 import { getString } from '../../../STRINGS';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex: 1;

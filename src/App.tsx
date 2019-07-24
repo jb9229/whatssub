@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { AsyncStorage } from 'react-native';
 import * as Font from 'expo-font';
+import React, { useEffect, useState } from 'react';
+import { AsyncStorage } from 'react-native';
+import { AppProvider as Provider } from './providers';
 import SwitchNavigator from './components/navigation/SwitchNavigator';
 import { ThemeType } from './types';
-
-import { AppProvider as Provider } from './providers';
 
 const App = () => {
   const [theme, setTheme] = useState<ThemeType>(ThemeType.LIGHT);

@@ -1,14 +1,13 @@
-import React from 'react';
-import { Text } from 'react-native';
 import {
-  createStackNavigator,
+  NavigationContainer,
   NavigationRouteConfigMap,
   StackNavigatorConfig,
-  NavigationContainer,
+  createStackNavigator,
 } from 'react-navigation';
-
 import IntroScreen from '../screen/Intro';
+import React from 'react';
 import { ScreenProps } from '../../types';
+import { Text } from 'react-native';
 
 const routeConfig: NavigationRouteConfigMap = {
   Intro: {
