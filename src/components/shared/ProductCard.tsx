@@ -1,6 +1,6 @@
 import { IC_EDIT, IC_NOTI_OFF, IC_NOTI_ON } from '../../utils/Icons';
 import React, { useState } from 'react';
-import SwitchToggle from 'react-native-switch-toggle';
+import { SwitchToggle } from 'dooboo-native-widgets';
 import {
   TouchableOpacity,
 } from 'react-native';
