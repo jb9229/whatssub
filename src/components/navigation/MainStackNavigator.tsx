@@ -4,6 +4,7 @@ import {
   StackNavigatorConfig,
   createStackNavigator,
 } from 'react-navigation';
+
 import Main from '../screen/Main';
 import React from 'react';
 import { ScreenProps } from '../../types';

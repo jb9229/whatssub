@@ -1,14 +1,13 @@
-import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react-native';
+import { IC_FACEBOOK, IC_GOOGLE, IC_LOGO, IC_SLASH } from '../../../src/utils/Icons';
+import { addDecorator, storiesOf } from '@storybook/react-native';
+import { boolean, number, text } from '@storybook/addon-knobs';
 import Button from '../../../src/components/shared/Button';
+import React from 'react';
 import styled from 'styled-components/native';
-import { IC_LOGO, IC_GOOGLE, IC_FACEBOOK, IC_SLASH } from '../../../src/utils/Icons';
-import { text, boolean, number } from '@storybook/addon-knobs';
 
 const Container = styled.View`
   flex: 1;
   justify-content: center;
-  background-color: ${({ theme }) => theme.backgroundLight};
 `;
 
 const ContainerDeco = (storyFn) => (
@@ -21,6 +20,9 @@ storiesOf('shared-Button', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
     <Button
+      // using console.log() here in storybook is necessary
+      // for testing its behavior until using 'action' addons
+      // eslint-disable-next-line no-console
       onClick={() => console.log('button clicked')}
       text='Test Button'
       style={{

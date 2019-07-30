@@ -1,3 +1,3 @@
 import './shared/Button';
-import './AuthLoading';
+import './screen';
 import './sample';

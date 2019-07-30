@@ -1,13 +1,21 @@
+import * as Font from 'expo-font';
+
 import React, { useEffect, useReducer } from 'react';
-import { AppContext } from '../contexts';
+
+import { AsyncStorage } from 'react-native';
 import { ThemeType } from '../types';
 
+interface Context {
+  state: State;
+  changeTheme: (theme?: ThemeType) => void;
+}
+const AppContext = React.createContext<Context>(null);
 const AppConsumer = AppContext.Consumer;
 
-interface Action {
-  type: 'change-theme-mode';
+interface ChangeThemeTypeAction {
+  type: 'change-theme-type-mode';
   payload: {
-    theme: ThemeType,
+    theme?: ThemeType;
   };
 }
 
@@ -17,16 +25,27 @@ interface Props {
 }
 
 interface State {
-  theme: ThemeType;
+  theme?: ThemeType;
 }
 
-const initialState: State = {
+export const initialState: State = {
   theme: ThemeType.LIGHT,
 };
 
-const reducer = (state: State, action: Action) => {
+const reducer = (state: State, action: ChangeThemeTypeAction) => {
   switch (action.type) {
-    case 'change-theme-mode':
+    case 'change-theme-type-mode':
+      // if payload.theme doesn't exist, toggle
+      if (!action.payload.theme) {
+        return {
+          ...state,
+          theme:
+            state.theme === ThemeType.LIGHT
+              ? ThemeType.DARK
+              : ThemeType.LIGHT,
+        };
+      }
+      // else change it with payload.theme
       return {
         ...state,
         theme: action.payload.theme,
@@ -38,19 +57,46 @@ const reducer = (state: State, action: Action) => {
 
 function AppProvider(props: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const value = { state, dispatch };
 
-  useEffect(() => {
+  // by encapsulating dispatch, it is easier to use (such as passing through screenProps)
+  const changeTheme: (theme?: ThemeType) => void = (theme) => {
     dispatch({
-      type: 'change-theme-mode',
+      type: 'change-theme-type-mode',
       payload: {
-        theme: props.theme,
+        theme,
       },
     });
+  };
+
+  // initialize theme
+  useEffect(() => {
+    changeTheme(props.theme ? props.theme : initialState.theme);
   }, [props.theme]);
 
+  // Load font and then use saved theme from local storage
+  const getCurrentThemeType = async () => {
+    const value = (await AsyncStorage.getItem('theme')) as ThemeType;
+    value && changeTheme(value);
+  };
+  useEffect(() => {
+    Font.loadAsync({
+      'spoqa-han-sans-bold': require('../../assets/fonts/SpocaHanSans/SpoqaHanSans-Bold.ttf'),
+      'spoqa-han-sans-regular': require('../../assets/fonts/SpocaHanSans/SpoqaHanSans-Regular.ttf'),
+    });
+    getCurrentThemeType();
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.setItem('theme', state.theme);
+  }, [state.theme]);
+
   return (
-    <AppContext.Provider value={value}>
+    <AppContext.Provider
+      value={{
+        state,
+        changeTheme,
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

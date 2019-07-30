@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import AuthLoading from '../../../src/components/screen/AuthLoading';
+import { number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react-native';
-import AuthLoading from '../../src/components/screen/AuthLoading';
 import styled from 'styled-components/native';
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
 const Container = styled.View`
   flex: 1;

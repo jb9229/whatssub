@@ -1,8 +1,9 @@
 import 'react-native';
+
 import * as GoogleSignIn from 'expo-google-sign-in';
 import * as React from 'react';
-import { AppAuth, AuthSession } from 'expo';
 
+import { AppAuth, AuthSession } from 'expo';
 // Note: test renderer must be required after react-native.
 import {
   RenderResult,
@@ -11,6 +12,7 @@ import {
   fireEvent,
   render,
 } from '@testing-library/react-native';
+
 import { AppProvider } from '../../../providers';
 import Intro from '../Intro';
 import { ThemeProvider } from 'styled-components/native';

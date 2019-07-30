@@ -12,7 +12,7 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "node node_modules/jest/bin/jest.js",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint src storybook --ext .ts,.tsx,.js,.jsx",
     "cp:config": "cp config.sample.ts config.ts",
     "storybook": "start-storybook -p 7007"
   },

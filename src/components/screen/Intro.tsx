@@ -1,10 +1,13 @@
 import * as Facebook from 'expo-facebook';
 import * as GoogleSignIn from 'expo-google-sign-in';
+
 import { AppAuth, AuthSession, Google } from 'expo';
 import { IC_FACEBOOK, IC_GOOGLE, IC_LOGO, IC_SLASH } from '../../utils/Icons';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import {
-  Platform, TouchableOpacity, View,
+  Platform,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import React, { useContext, useEffect, useState } from 'react';
 import {
@@ -13,7 +16,7 @@ import {
   iOSExpoClientId,
 } from '../../../config';
 
-import { AppContext } from '../../contexts';
+import { AppContext } from '../../providers';
 import Button from '../shared/Button';
 import Constants from 'expo-constants';
 import { ScreenProps } from '../../types';
@@ -21,7 +24,6 @@ import { Text } from 'react-native-animatable';
 import _range from 'lodash/range';
 import { getString } from '../../../STRINGS';
 import styled from 'styled-components/native';
-
 import useInterval from '../../hooks/useInterval';
 
 const Container = styled.View`
@@ -112,7 +114,7 @@ function Intro(props: Props) {
   const [googleUser, setGoogleUser] = useState(null);
   const [signingInFacebook, setSigningInFacebook] = useState(false);
   const [signingInGoogle, setSigningInGoogle] = useState(false);
-  const { state, dispatch } = useContext(AppContext);
+  const { state, changeTheme } = useContext(AppContext);
 
   useEffect(() => {
     initAsync();
