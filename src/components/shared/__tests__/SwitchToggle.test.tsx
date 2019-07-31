@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactNativeSwitchToggle from 'react-native-switch-toggle';
+import { SwitchToggle as ReactNativeSwitchToggle } from 'dooboo-native-widgets';
 
 // Note: test renderer must be required after react-native.
 import SwitchToggle from '../SwitchToggle';

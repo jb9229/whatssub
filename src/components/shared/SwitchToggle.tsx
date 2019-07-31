@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SwitchToggle from 'react-native-switch-toggle';
+import { SwitchToggle } from 'dooboo-native-widgets';
 
 interface Props {
   onPress: (switchOn: boolean) => void,
