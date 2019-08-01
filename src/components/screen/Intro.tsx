@@ -1,7 +1,7 @@
+import * as AppAuth from 'expo-app-auth';
 import * as Facebook from 'expo-facebook';
 import * as GoogleSignIn from 'expo-google-sign-in';
 
-import { AppAuth, AuthSession, Google } from 'expo';
 import { IC_FACEBOOK, IC_GOOGLE, IC_LOGO, IC_SLASH } from '../../utils/Icons';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import {

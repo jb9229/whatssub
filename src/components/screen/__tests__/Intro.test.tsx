@@ -1,9 +1,9 @@
 import 'react-native';
 
+import * as AppAuth from 'expo-app-auth';
 import * as GoogleSignIn from 'expo-google-sign-in';
 import * as React from 'react';
 
-import { AppAuth, AuthSession } from 'expo';
 // Note: test renderer must be required after react-native.
 import {
   RenderResult,
@@ -141,11 +141,9 @@ describe('[Intro] GoogleSingIn', () => {
         appOwnership: 'expo',
       };
     });
-    jest.mock('expo', () => {
+    jest.mock('expo-app-auth', () => {
       return {
-        AppAuth: {
-          authAsync: jest.fn(() => Promise.resolve()),
-        },
+        authAsync: jest.fn(() => Promise.resolve()),
       };
     });
 
