@@ -151,6 +151,6 @@ describe('[Intro] GoogleSingIn', () => {
     act(() => {
       fireEvent.press(btnGoogle);
     });
-    expect(AppAuth.authAsync()).resolves.toBeCalled();
+    expect(AppAuth.authAsync(null)).resolves.toBeCalled();
   });
 });
