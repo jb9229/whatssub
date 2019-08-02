@@ -9,6 +9,7 @@ import {
 
 import Main from '../screen/Main';
 
+
 const routeConfig: NavigationRouteConfigMap = {
   Intro: {
     screen: Main,

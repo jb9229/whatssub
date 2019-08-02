@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[TabBarIcon] UI Render Test renders without crashing and snapshot matches 1`] = `<Text />`;
+
+exports[`[TabBarIcon] render test renders without crashing and snapshot matches 1`] = `<Text />`;

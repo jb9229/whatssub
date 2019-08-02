@@ -9,6 +9,7 @@ import { AppContext } from '../../contexts';
 import { ThemeProvider } from 'styled-components';
 import { createTheme } from '../../theme';
 import AuthStackNavigator from './AuthStackNavigator';
+import HomeTabNavigator from './HomeTabNavigator';
 import MainStackNavigator from './MainStackNavigator';
 import MainEmpty from '../screen/MainEmpty';
 import AuthLoadingScreen from '../screen/AuthLoading';
@@ -18,12 +19,13 @@ const SwitchNavigator: NavigationContainer = createSwitchNavigator(
   {
     AuthLoadingScreen,
     AuthStackNavigator,
+    HomeTabNavigator,
     MainStackNavigator,
     ExamplePieChartMonth,
     MainEmpty,
   },
   {
-    initialRouteName: 'MainEmpty',
+    initialRouteName: 'HomeTabNavigator',
   },
 );
 
