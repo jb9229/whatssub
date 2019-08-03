@@ -1,6 +1,6 @@
 
-import { BottomTabNavigatorConfig, NavigationContainer, createBottomTabNavigator,
-  createStackNavigator } from 'react-navigation';
+import { BottomTabNavigatorConfig, NavigationContainer, NavigationRouteConfigMap,
+  createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { BottomTabBar } from 'react-navigation-tabs';
 import Home from '../screen/Home';
 import HomeCalendar from '../screen/HomeCalendar';
