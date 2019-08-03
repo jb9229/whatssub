@@ -61,12 +61,7 @@ const ContentWrapper = styled.View`
   align-items: flex-start;
 `;
 
-const ContentScroll = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})`
+const ContentScroll = styled.ScrollView`
   height: 100%;
   width: 100%;
 `;
@@ -230,9 +225,14 @@ function Intro(props: Props) {
   return (
     <Container>
       <ContentWrapper>
-        <ContentScroll>
+        <ContentScroll
+          contentContainerStyle={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <TitleWrapper>
-            <LogoImage source={IC_LOGO} />
+            <LogoImage source={IC_LOGO}/>
           </TitleWrapper>
           <SlashImage
             style={{
@@ -248,16 +248,12 @@ function Intro(props: Props) {
             direction='alternate'
             duration={1000}
           >
-            {titleArray[titleIndex]}
+            { titleArray[titleIndex] }
           </StyledAnimatableText>
           <StyledText>{getString('INTRO_MESSAGE')}</StyledText>
-          <StyledText
-            style={{
-              color: props.screenProps.theme.fontTint,
-            }}
-          >
-            {getString('INTRO_WHATSSUB')}
-          </StyledText>
+          <StyledText style={{
+            color: props.screenProps.theme.fontTint,
+          }}>{getString('INTRO_WHATSSUB')}</StyledText>
           <SlashImage
             style={{
               marginTop: 38,
@@ -267,7 +263,7 @@ function Intro(props: Props) {
           />
           <ButtonWrapper>
             <Button
-              testID="btnGoogle"
+              testID='btnGoogle'
               style={btnStyle}
               imgLeftSrc={IC_GOOGLE}
               isLoading={signingInGoogle}
@@ -275,9 +271,9 @@ function Intro(props: Props) {
               onClick={ () => googleSignInAsync() }
               text={getString('SIGN_IN_WITH_GOOGLE')}
             />
-            <View style={{ marginTop: 8 }} />
+            <View style={{ marginTop: 8 }}/>
             <Button
-              testID="btnFacebook"
+              testID='btnFacebook'
               style={btnStyle}
               imgLeftSrc={IC_FACEBOOK}
               indicatorColor={props.screenProps.theme.backgroundDark}
@@ -291,6 +287,7 @@ function Intro(props: Props) {
               }}
               text={getString('SIGN_IN_WITH_FACEBOOK')}
             />
+
           </ButtonWrapper>
         </ContentScroll>
       </ContentWrapper>
