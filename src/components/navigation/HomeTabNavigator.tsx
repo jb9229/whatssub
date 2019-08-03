@@ -1,64 +1,80 @@
 
-import React from 'react';
-import { createStackNavigator, createBottomTabNavigator, BottomTabNavigatorConfig, NavigationContainer } from 'react-navigation';
+import { BottomTabNavigatorConfig, NavigationContainer, createBottomTabNavigator,
+  createStackNavigator } from 'react-navigation';
 import { BottomTabBar } from 'react-navigation-tabs';
-import TabBarIcon from '../shared/TabBarIcon';
 import Home from '../screen/Home';
 import HomeCalendar from '../screen/HomeCalendar';
 import HomeFavorite from '../screen/HomeFavorite';
 import HomeSetting from '../screen/HomeSetting';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import TabBarIcon from '../shared/TabBarIcon';
+
+const HomeIcon = ({ focused } : { focused: boolean }) =>
+  <TabBarIcon focused={focused} name="home" type="MaterialIcons" />;
+
+const CalendarIcon = ({ focused } : { focused: boolean }) =>
+  <TabBarIcon focused={focused} name="calendar" type="AntDesign" />;
+
+const FavoriteIcon = ({ focused } : { focused: boolean }) =>
+  <TabBarIcon focused={focused} name="favorite-border" type="MaterialIcons" />;
+
+const SettingIcon = ({ focused } : { focused: boolean }) =>
+  <TabBarIcon focused={focused} name="setting" type="AntDesign" />;
 
 /**
  * HOME STACK NAVIGATOR
  */
 const HomeStack = createStackNavigator({
-  Home: { screen: Home }
+  Home: { screen: Home },
 });
 
 HomeStack.navigationOptions = {
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="home" type="MaterialIcons" />,
+  tabBarIcon: HomeIcon,
 };
-
 
 /**
  * CALENDAR STACK NAVIGATOR
  */
 const HomeCalendarStack = createStackNavigator({
-  Home: { screen: HomeCalendar }
+  Home: { screen: HomeCalendar },
 });
 
 HomeCalendarStack.navigationOptions = {
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="calendar" type="AntDesign" />,
+  tabBarIcon: CalendarIcon,
 };
-
 
 /**
  * FAVORITE STACK NAVIGATOR
  */
 const HomeFavoriteStack = createStackNavigator({
-  Home: { screen: HomeFavorite }
+  Home: { screen: HomeFavorite },
 });
 
 HomeFavoriteStack.navigationOptions = {
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="favorite-border" type="MaterialIcons" />,
+  tabBarIcon: FavoriteIcon,
 };
-
 
 /**
  * SETTING STACK NAVIGATOR
  */
 const HomeSettingStack = createStackNavigator({
-  Home: { screen: HomeSetting }
+  Home: { screen: HomeSetting },
 });
 
 HomeSettingStack.navigationOptions = {
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="setting" type="AntDesign" />,
+  tabBarIcon: SettingIcon,
 };
-
 
 /**
  * Setting Route Configuration
  */
+const styles = StyleSheet.create({
+  tabBar: {
+    height: 70,
+  },
+});
+
 const routeConfig: NavigationRouteConfigMap = {
   HomeStack,
   HomeCalendarStack,
@@ -66,23 +82,21 @@ const routeConfig: NavigationRouteConfigMap = {
   HomeSettingStack,
 };
 
+const tabBar = (props: any) => (<BottomTabBar {...props} style={styles.tabBar} />);
+
 const bottomNavigatorConfig: BottomTabNavigatorConfig = {
   initialRouteName: 'HomeStack',
   tabBarOptions: {
     showLabel: false,
   },
-  tabBarComponent: props =>
-    <BottomTabBar
-      {...props}
-      style={{ height: 70 }}
-    />,
-}
-
+  tabBarComponent: tabBar,
+};
 
 /**
  * Create Bottom Tab Navigator
  */
-const RootTabNavigator: NavigationContainer = createBottomTabNavigator(routeConfig, bottomNavigatorConfig);
+const RootTabNavigator: NavigationContainer =
+createBottomTabNavigator(routeConfig, bottomNavigatorConfig);
 
 interface Props {
   navigation?: any;
@@ -91,7 +105,7 @@ interface Props {
 
 /**
  * Set Theme and Navigation to NavigationContainer
- * 
+ *
  */
 class RootNavigator extends React.Component<Props> {
   private static router = RootTabNavigator.router;

@@ -1,6 +1,6 @@
+import * as Icon from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import * as Icon from '@expo/vector-icons';
 
 // Static Variable
 const DEFAULT_ICON_SIZE = 32;
@@ -10,7 +10,7 @@ const COLOR_TABICON_SELECTED = '#75a3ff';
 const styles = StyleSheet.create({
   icon: {
     marginBottom: -3,
-  }
+  },
 });
 
 interface Props {
@@ -24,7 +24,7 @@ interface Props {
 function Shared(props: Props) {
   const iconSize = props.size || DEFAULT_ICON_SIZE;
 
-  if(props.type && props.type === 'MaterialIcons') {
+  if (props.type && props.type === 'MaterialIcons') {
     return (
       <Icon.MaterialIcons
         testID={props.testID}
@@ -36,7 +36,7 @@ function Shared(props: Props) {
     );
   }
 
-  if(props.type && props.type === 'AntDesign') {
+  if (props.type && props.type === 'AntDesign') {
     return (
       <Icon.AntDesign
         testID={props.testID}
