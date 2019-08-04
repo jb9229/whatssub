@@ -1,17 +1,19 @@
 import * as Icon from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components';
 
 // Static Variable
 const DEFAULT_ICON_SIZE = 32;
 const COLOR_TABICON_DEFAULT = '#c6cbcf';
 const COLOR_TABICON_SELECTED = '#75a3ff';
 
-const styles = StyleSheet.create({
-  icon: {
-    marginBottom: -3,
-  },
-});
+// Style Components
+const MaterialIcons = styled(Icon.MaterialIcons)`
+`;
+const AntDesignIcons = styled(Icon.AntDesign)`
+`;
+const IoniconsIcons = styled(Icon.Ionicons)`
+`;
 
 interface Props {
   name: string;
@@ -26,11 +28,10 @@ function Shared(props: Props) {
 
   if (props.type && props.type === 'MaterialIcons') {
     return (
-      <Icon.MaterialIcons
+      <MaterialIcons
         testID={props.testID}
         name={props.name}
         size={iconSize}
-        style={styles.icon}
         color={props.focused ? COLOR_TABICON_SELECTED : COLOR_TABICON_DEFAULT}
       />
     );
@@ -38,22 +39,20 @@ function Shared(props: Props) {
 
   if (props.type && props.type === 'AntDesign') {
     return (
-      <Icon.AntDesign
+      <AntDesignIcons
         testID={props.testID}
         name={props.name}
         size={iconSize}
-        style={styles.icon}
         color={props.focused ? COLOR_TABICON_SELECTED : COLOR_TABICON_DEFAULT}
       />
     );
   }
 
   return (
-    <Icon.Ionicons
+    <IoniconsIcons
       testID={props.testID}
       name={props.name}
       size={iconSize}
-      style={styles.icon}
       color={props.focused ? COLOR_TABICON_SELECTED : COLOR_TABICON_DEFAULT}
     />
   );

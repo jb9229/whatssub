@@ -7,9 +7,15 @@ import HomeCalendar from '../screen/HomeCalendar';
 import HomeFavorite from '../screen/HomeFavorite';
 import HomeSetting from '../screen/HomeSetting';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import TabBarIcon from '../shared/TabBarIcon';
+import styled from 'styled-components';
 
+// Style Components
+const WsubBottomTabBar = styled(BottomTabBar)`
+  height: 70;
+`;
+
+// Icons Components
 const HomeIcon = ({ focused } : { focused: boolean }) =>
   <TabBarIcon focused={focused} name="home" type="MaterialIcons" />;
 
@@ -69,11 +75,6 @@ HomeSettingStack.navigationOptions = {
 /**
  * Setting Route Configuration
  */
-const styles = StyleSheet.create({
-  tabBar: {
-    height: 70,
-  },
-});
 
 const routeConfig: NavigationRouteConfigMap = {
   HomeStack,
@@ -82,7 +83,7 @@ const routeConfig: NavigationRouteConfigMap = {
   HomeSettingStack,
 };
 
-const tabBar = (props: any) => (<BottomTabBar {...props} style={styles.tabBar} />);
+const tabBar = (props: any) => (<WsubBottomTabBar {...props} />);
 
 const bottomNavigatorConfig: BottomTabNavigatorConfig = {
   initialRouteName: 'HomeStack',
